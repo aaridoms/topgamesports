@@ -1,0 +1,24 @@
+[
+  {
+    "title": "The Legend of Zelda Ocarina of Time",
+    "description": "La historia del juego se enfoca en el joven héroe Link, quien emprende una aventura en el reino de Hyrule para detener a Ganondorf, rey de la tribu Gerudo, antes de que encuentre la Trifuerza, una reliquia sagrada capaz de concederle cualquier deseo a su poseedor. Para ello, debe viajar a través del tiempo y explorar varios templos con el fin de despertar a algunos sabios que tienen el poder para aprisionar de forma definitiva a Ganondorf. ",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/5/57/The_Legend_of_Zelda_Ocarina_of_Time.jpg",
+    "genre": ["Acción", "Aventura", "Fantasía"],
+    "rating": 9.1,
+    "video": "https://youtu.be/F0fPCbtlrCo",
+    "platform": ["Nintendo"],
+    "launchDate": "November 23,1998",
+    "isCompetitive": false
+  },
+  {
+    "title": "The Legend of Zelda Majora's Mask",
+    "description": "La historia del juego se enfoca en el joven héroe Link, quien es transportado a través del tiempo a un mundo paralelo y debe detener a Skull Kid de destruir el mundo en tres días. Si bien el juego conserva el mismo motor gráfico y mecánica de juego que su predecesor, The Legend of Zelda: Ocarina of Time, el juego se centra en un sistema de tiempo y en el uso de máscaras para adquirir nuevas habilidades.",
+    "cover": "https://upload.wikimedia.org/wikipedia/en/7/7c/The_Legend_of_Zelda_Majora%27s_Mask.jpg",
+    "genre": ["Acción", "Aventura", "Fantasía"],
+    "rating": 8.9,
+    "video": "https://youtu.be/fTv_p5hEu0A",
+    "platform": ["Nintendo"],
+    "launchDate": "April 27, 2000",
+    "isCompetitive": false
+  }
+]
