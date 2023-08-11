@@ -17,6 +17,13 @@ const favicon = require("serve-favicon");
 // https://www.npmjs.com/package/path
 const path = require("path");
 
+const session = require("express-session")
+const MongoStore =require("connect-mongo")
+
+const MONGO_URI =
+  process.env.MONGODB_URI || "mongodb://127.0.0.1:27017/topgamesports";
+
+
 // Middleware configuration
 module.exports = (app) => {
   // In development environment the app logs
@@ -36,4 +43,18 @@ module.exports = (app) => {
 
   // Handles access to the favicon
   app.use(favicon(path.join(__dirname, "..", "public", "images", "favicon.ico")));
+  
+  app.use(
+      session({
+        secret: process.env.SESSION_SECRET,
+        saveUninitialized: false, // don't create session until something stored
+        resave: false, //don't save session if unmodified//Palabra que hace un cifrado de las cookies del usuario
+        store: MongoStore.create({
+          mongoUrl: MONGO_URI, // Colocamos la URL de nuestra base de mongo (LINEA 24)
+          ttl: 24 * 60 * 60 
+        }),
+      })
+    );
 };
+
+
