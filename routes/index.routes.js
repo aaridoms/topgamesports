@@ -15,4 +15,7 @@ router.use('/auth', authRoutes);
 const userRoutes = require('./user.routes');
 router.use('/user', userRoutes);
 
+const gameRoutes = require('./game.routes');
+router.use('/game', gameRoutes);
+
 module.exports = router;

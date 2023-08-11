@@ -1,0 +1,11 @@
+<div>
+    <h1>Game List</h1>
+    <ul>
+        {{#each allGames}}
+        <li>
+            <a href="/game/{{this._id}}/details">{{this.title}}</a>
+        </li>
+        <img src="{{this.cover}}" alt="{{this.title}}">
+        {{/each}}
+    </ul>
+</div>

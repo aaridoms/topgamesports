@@ -16,11 +16,13 @@
             {{#if isUserActive}}
                {{#unless isAdminActive}}
                      <li><a href="/user">Profile</a></li>
+                     <li><a href="/game">Games</a></li>
                      <li><a href="/auth/logout">Logout</a></li>
                {{/unless}}
             {{/if}}
             {{#if isAdminActive}}
                <li><a href="/user">Profile</a></li>
+               <li><a href="/game">Games</a></li>
                <li><a href="/user/list">Admin</a></li>
                <li><a href="/auth/logout">Logout</a></li>
             {{/if}}
