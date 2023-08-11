@@ -15,26 +15,21 @@ const isAdmin = (req, res, next) => {
 };
 
 const updateLocals = (req, res, next) => {
-  
   if (req.session.user === undefined) {
     res.locals.isUserActive = false;
-  }else {
+  } else {
     res.locals.isUserActive = true;
+    if (req.session.user.role === "admin") {
+      res.locals.isAdminActive = true;
+    } else {
+      res.locals.isAdminActive = false;
+    }
   }
-  next()
+  next();
 };
-
-// const adminRoutes = (req, res, next) => {
-//   if (req.session.user.role === "admin") {
-//     res.locals.isAdmin = true;
-//   } else {
-//     res.locals.isAdmin = false;
-//   }
-//   next();
-// };
 
 module.exports = {
   isLoggedIn,
   isAdmin,
   updateLocals,
-  };
+};
