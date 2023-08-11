@@ -1,0 +1,14 @@
+<div>
+  <h3>Bienvenido {{foundUser.username}}</h3>
+
+  <img src="{{foundUser.profilePic}}" alt="potrait", width="100px">
+
+  <p>Tu email es: {{foundUser.email}}</p>
+
+  <form action="/user/profile-pic" method="post" enctype="multipart/form-data">
+    <label for="profilePic"></label>
+    <input type="file" name="profilePic">
+
+    <button>Upload</button>
+  </form>
+</div>

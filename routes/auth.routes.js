@@ -73,7 +73,6 @@ router.post("/signup", async (req, res, next) => {
 });
 
 //GET "/auth/login" => renderiza al usuario un formulario de acces
-
 router.get("/login", (req, res, next) => {
   res.render("auth/login.hbs");
 });
@@ -119,7 +118,6 @@ router.post("/login", async (req, res, next) => {
 });
 
 // GET "/auth/logout" => Le permite al usuario cerrar la sesion activa
-
 router.get("/logout", (req, res, next) => {
   req.session.destroy(() => {
     res.redirect("/");

@@ -1,0 +1,24 @@
+<div>
+  <h3>Lista de usuarios</h3>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each listOfUsers}}
+      <tr>
+        <td>{{this.username}}</td>
+        <td>{{this.email}}</td>
+        <td>
+          <a href="/user/{{this._id}}/delete"><button>Eliminar</button></a>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
