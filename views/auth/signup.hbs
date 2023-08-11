@@ -1,0 +1,23 @@
+<div>
+  <h3>Formulario de registro</h3>
+
+  <form action="/auth/signup" method="post">
+    <label for="username">Username</label>
+    <input type="text" name="username">
+
+    <label for="email">Email</label>
+    <input type="email" name="email">
+
+    <label for="password">Password</label>
+    <input type="text" name="password">
+
+    <label for="repitPassword">Repit Password</label>
+    <input type="text" name="repitPassword">
+
+    {{#if errorMessage}}
+      <p>{{errorMessage}}</p>
+    {{/if}}
+
+    <button>Signup</button>
+  </form>
+</div>

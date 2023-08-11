@@ -1,6 +1,5 @@
 const { Schema, model } = require("mongoose");
 
-// TODO: Please make sure you edit the User model to whatever makes sense in this case
 const userSchema = new Schema(
   {
     username: {
@@ -19,10 +18,22 @@ const userSchema = new Schema(
     password: {
       type: String,
       required: true
+    },
+    role: {
+      type: String,
+      enum: ["user", "admin", "moderator"],
+      default: "user"
+    },
+    favGame: [{
+      type: Schema.Types.ObjectId,
+      ref: "Game"
+    }],
+    profilePic: {
+      type: String,
+      default: "images/userDefault.jpg"
     }
   },
-  {
-    // this second object adds extra properties: `createdAt` and `updatedAt`    
+  {    
     timestamps: true
   }
 );
