@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 
 const User = require("../models/User.model.js");
+const Event = require("../models/Event.model.js");
+const Game = require("../models/Game.model.js");
 
 const { isLoggedIn, isAdmin } = require("../middlewares/auth.middleware.js");
 const uploader = require("../middlewares/cloudinary.middleware.js");
@@ -9,9 +11,11 @@ const uploader = require("../middlewares/cloudinary.middleware.js");
 // GET "/user" => Rendeiza la vista de perfil de usuario.
 router.get("/", isLoggedIn, async (req, res, next) => {
   try {
-    const foundUser = await User.findById(req.session.user._id);
+    const foundUser = await User.findById(req.session.user._id).populate("favGame");
+    const userEvent = await Event.find({ participants: req.session.user._id });
     res.render("user/profile.hbs", {
       foundUser,
+      userEvent
     });
   } catch (error) {
     next(error);
@@ -59,6 +63,50 @@ router.get("/:userId/delete", isLoggedIn, isAdmin, async (req, res, next) => {
   }
 });
 
+// POST "/user/:gameId/favgame" => Añade el juego a la lista de favoritos del usuario.
+router.post("/:gameId/favgame", isLoggedIn, async (req, res, next) => {
+  try {
+    let currentUser = await User.findById(req.session.user._id);
+    let oneGame = await Game.findById(req.params.gameId);
 
+    if (currentUser.favGame.includes(req.params.gameId)) {
+      res.status(400).render("game/game-details", {
+        message: "Game already in your favorites!",
+        oneGame
+      })
+    } else {
+      oneGame = await Game.findById(req.params.gameId);
+      await User.findByIdAndUpdate(req.session.user._id, { $push: { favGame: oneGame._id } });
+      res.render("game/game-details", {
+        oneGame,
+        message: "Game added to your favorites!"
+      });
+    }
+  } catch (error) {
+    next(error);
+  }
+});
 
+// POST "/user/:gameId/unfavgame" => Elimina el juego de la lista de favoritos del usuario.
+router.post("/:gameId/no-favgame", isLoggedIn, async (req, res, next) => {
+  try {
+    let currentUser = await User.findById(req.session.user._id);
+    let oneGame = await Game.findById(req.params.gameId);
+    if (!currentUser.favGame.includes(req.params.gameId)) {
+      res.status(400).render("game/game-details", {
+        message: "Game not in your favorites!",
+        oneGame
+      }) 
+    }else {
+      oneGame = await Game.findById(req.params.gameId);
+      await User.findByIdAndUpdate(req.session.user._id, { $pull: { favGame: oneGame._id } });
+      res.render("game/game-details", {
+        oneGame,
+        message: "Game deleted from your favorites!"
+      });
+    }
+  } catch (error) {
+    next(error);
+  }
+});
 module.exports = router;

@@ -4,13 +4,23 @@
   <h3>{{oneEvent.game.title}}</h3>
   <p>{{oneEvent.description}}</p>
   <p>{{oneEvent.date}}</p>
-  <img src="{{oneEvent.imageUrl}}" alt="{{oneEvent.name}}/name">
+  <img src="{{oneEvent.imageUrl}}" alt="{{oneEvent.name}}-name">
   
   <p>Usuarios apuntados:{{numberOfParticipants}}</p>
   
-  <form action="/event/{{oneEvent._id}}/details" method="post">
-      <button >Join</button>
+  {{!-- {{#if isAdminActive}}
+    {{#each oneEvent.participants}}
+      <li>{{this.username}}</li>
+    {{/each}}
+  {{/if}} --}}
+  
+  <form action="/event/{{oneEvent._id}}/join" method="post">
+      <button id="joined">Join</button>
   </form>
+  <form action="/event/{{oneEvent._id}}/leave" method="post">
+      <button id="joined">Leave</button>
+  </form>
+
   {{#if messageError}}
   <p>{{messageError}}</p>
   {{/if}}

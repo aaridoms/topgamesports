@@ -5,6 +5,14 @@
 
   <p>Tu email es: {{foundUser.email}}</p>
 
+  {{#each foundUser.favGame}}
+    <li><a href="/game/{{this._id}}/details">{{this.title}}</a></li>
+  {{/each}}
+
+  {{#each userEvent}}
+    <li><a href="/event/{{this._id}}/details">{{this.name}}</a> - {{this.startDate}}</li>
+  {{/each}}
+
   <form action="/user/profile-pic" method="post" enctype="multipart/form-data">
     <label for="profilePic"></label>
     <input type="file" name="profilePic">

@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 
 const Event = require("../models/Event.model.js");
-const User = require("../models/User.model.js");
 const Game = require("../models/Game.model.js");
 
 const { isLoggedIn, isAdmin } = require("../middlewares/auth.middleware.js");
@@ -122,8 +121,7 @@ router.post("/:eventId/edit", isLoggedIn, isAdmin, async (req, res, next) => {
 });
 
 // POST "/event/:eventId/join" => Usuario se añade al evento
-
-router.post("/:eventId/details", isLoggedIn, async (req, res, next) => {
+router.post("/:eventId/join", isLoggedIn, async (req, res, next) => {
   try {
     let oneEvent = await Event.findById(req.params.eventId).populate("game");
     let numberOfParticipants = oneEvent.participants.length;
@@ -138,10 +136,39 @@ router.post("/:eventId/details", isLoggedIn, async (req, res, next) => {
         req.params.eventId,
         { $push: { participants: req.session.user._id } },
         { new: true }
-      );
+      ).populate("game");
       numberOfParticipants = oneEvent.participants.length;
       console.log(oneEvent);
-      // res.redirect(`/event/${req.params.eventId}/details`)
+      
+      res.render("event/event-details", {
+        oneEvent,
+        numberOfParticipants,
+      });
+    }
+  } catch (error) {
+    next(error);
+  }
+});
+
+// POST "/event/:eventId/leave" => Usuario se elimina del evento
+router.post("/:eventId/leave", isLoggedIn, async (req, res, next) => {
+  try {
+    let oneEvent = await Event.findById(req.params.eventId).populate("game");
+    let numberOfParticipants = oneEvent.participants.length;
+    if (!oneEvent.participants.includes(req.session.user._id)) {
+      res.status(400).render("event/event-details", {
+        messageError: "No estas en el evento",
+        oneEvent,
+        numberOfParticipants,
+      });
+    } else {
+      oneEvent = await Event.findByIdAndUpdate(
+        req.params.eventId,
+        { $pull: { participants: req.session.user._id } },
+        { new: true }
+      ).populate("game");
+      numberOfParticipants = oneEvent.participants.length;
+      
       res.render("event/event-details", {
         oneEvent,
         numberOfParticipants,

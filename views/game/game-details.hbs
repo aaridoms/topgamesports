@@ -19,4 +19,16 @@
   title="YouTube video player" frameborder="0" 
   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
   </iframe>
+
+  <form action="/user/{{oneGame._id}}/favgame" method="post">
+    <button>Add to favorites</button>
+  </form>
+
+  <form action="/user/{{oneGame._id}}/no-favgame" method="post">
+    <button>Delete from favorites</button>
+  </form>
+
+  {{#if message}}
+    <p>{{message}}</p>
+  {{/if}}
 </div>
