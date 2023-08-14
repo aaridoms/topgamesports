@@ -11,6 +11,17 @@ const eventSchema = new Schema({
   },
   startDate: {
     type: Date,
+    get: function(date) {
+      if (!date) {
+        return null;
+      }
+
+      const day = date.getDate();
+      const month = date.getMonth() + 1; // Los meses en JavaScript van de 0 a 11
+      const year = date.getFullYear();
+
+      return `${day}/${month}/${year}`;
+    },
     require: true
   },
   imageUrl: {

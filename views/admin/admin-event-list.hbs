@@ -1,0 +1,28 @@
+<div>
+    <h1>Admin Event List</h1>
+    <a href="/event/new-event"><button>Añadir Evento</button></a>
+  
+    <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Fecha</th>
+        <th>Game</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each allEvents}}
+      <tr>
+        <td>{{this.name}}</td>
+        <td>{{this.startDate}}</td>
+        <td>{{this.game.title}}</td>
+        <td>
+        <a href="/event/{{this._id}}/edit"><button>Editar</button></a>
+
+        <a href="/event/{{this._id}}/delete"><button>Eliminar</button></a>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

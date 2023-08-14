@@ -1,0 +1,14 @@
+<div>
+  <h1>Detalles del evento</h1>
+  <h2>{{oneEvent.name}}</h2>
+  <h3>{{oneEvent.game.title}}</h3>
+  <p>{{oneEvent.description}}</p>
+  <p>{{oneEvent.date}}</p>
+  <img src="{{oneEvent.imageUrl}}" alt="{{oneEvent.name}}/name">
+  {{#each oneEvent.participants}}
+  <p>{{this.username}}</p>
+  {{/each}}
+
+  <form action="/event/{{oneEvent._id}}/join" method="POST">
+    <button type="submit">Join</button>
+</div>

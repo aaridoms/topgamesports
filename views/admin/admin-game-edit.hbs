@@ -1,34 +1,32 @@
-
 <div>
 
-<H1>Añade un Juego</H1>
+<H1>Editar {{oneGame.title}}</H1>
 
-<form action="/game/new-game" method="post">
+<form action="/game/{{oneGame._id}}/edit" method="post">
     <label for="title">Title</label>
-    <input type="text" name="title">
+    <input type="text" name="title" value="{{oneGame.title}}">
 
     <label for="description">Description</label>
-    <input type="text" name="description">
+    <input type="text" name="description" value="{{oneGame.description}}">
 
     <label for="cover">Cover</label>
-    <input type="text" name="cover">
+    <input type="text" name="cover" value="{{oneGame.cover}}">
 
     <label for="genre">Genre</label>
     <select name="genre" multiple>
         <option value="action">Action</option>
         <option value="adventure">Adventure</option>
         <option value="shooter">Shooter</option>
-        
     </select>
     
     <label for="rating">Rating</label>
-    <input type="text" name="rating">
+    <input type="text" name="rating" value="{{oneGame.rating}}">
 
     <label for="video">Video</label>
-    <input type="text" name="video">
+    <input type="text" name="video" value="{{oneGame.video}}">
 
     <label for="platform">Platform</label>
-     <select name="platform" multiple>
+     <select name="platform" multiple value="{{oneGame.platform}}">
         <option value="Sony">Sony</option>
         <option value="Xbox">Xbox</option>
         <option value="Nintendo">Nintendo</option>
@@ -36,10 +34,10 @@
      </select>
 
     <label for="launchDate">LaunchDate</label>
-    <input type="date" name="launchDate">
+    <input type="text" name="launchDate" value="{{oneGame.launchDate}}">
 
     <label for="isCompetitive">Is Competitive?</label>
-    <select name="isCompetitive">
+    <select name="isCompetitive" value="{{oneGame.isCompetitive}}">
         <option value="true">True</option>
         <option value="false">False</option>
     </select>
@@ -50,8 +48,7 @@
       <p>{{errorMessage}}</p>
     {{/if}}
 
-    <button>Añadir</button>
+    <button>Editar</button>
   </form>
-
 
 </div>

@@ -1,0 +1,8 @@
+<div>
+  <h1>Esto es una lista de eventos</h1>
+  {{#each allEvents}}
+    <div>
+      <a href="/event/{{this._id}}/details"><h2>{{this.name}}</h2></a>
+    </div>
+  {{/each}}
+</div>

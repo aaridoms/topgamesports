@@ -1,0 +1,37 @@
+
+<div>
+
+<H1>Editar {{oneEvent.name}}</H1>
+
+<form action="/event/{{oneEvent._id}}/edit" method="post">
+    <label for="name">name</label>
+    <input type="text" name="name" value="{{oneEvent.name}}">
+
+    <label for="description">Description</label>
+    <input type="text" name="description" value="{{oneEvent.description}}">
+
+    <label for="startDate">Fecha</label>
+    <input type="date" name="startDate" {{oneEvent.startDate}}>
+
+    <label for="imageUrl">Imagen</label>
+    <input type="text" name="imageUrl" value="{{oneEvent.imageUrl}}">
+
+
+    <label for="game">Juego</label>
+     <select name="game">
+      {{#each cloneAllGames}}
+      {{#if this.isSelected}}
+        <option value="{{this._id}}" selected>{{this.title}}</option>
+      {{else}}
+        <option value="{{this._id}}">{{this.title}}</option>
+      {{/if}}
+      {{/each}}
+     </select>
+
+    {{#if errorMessage}}
+      <p>{{errorMessage}}</p>
+    {{/if}}
+
+    <button>Editar</button>
+  </form>
+</div>

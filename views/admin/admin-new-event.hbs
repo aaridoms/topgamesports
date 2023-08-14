@@ -1,0 +1,35 @@
+
+<div>
+
+<H1>Añade un Juego</H1>
+
+<form action="/event/new-event" method="post">
+    <label for="name">name</label>
+    <input type="text" name="name">
+
+    <label for="description">Description</label>
+    <input type="text" name="description">
+
+    <label for="startDate">Fecha</label>
+    <input type="date" name="startDate">
+
+    <label for="imageUrl">Imagen</label>
+    <input type="text" name="imageUrl">
+
+
+    <label for="game">Juego</label>
+     <select name="game">
+      {{#each allGames}}
+        <option value="{{this._id}}">{{this.title}}</option>
+      {{/each}}
+     </select>
+
+    {{#if errorMessage}}
+      <p>{{errorMessage}}</p>
+    {{/if}}
+
+    <button>Añadir</button>
+  </form>
+
+
+</div>
