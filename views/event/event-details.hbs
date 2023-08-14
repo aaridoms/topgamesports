@@ -5,10 +5,14 @@
   <p>{{oneEvent.description}}</p>
   <p>{{oneEvent.date}}</p>
   <img src="{{oneEvent.imageUrl}}" alt="{{oneEvent.name}}/name">
-  {{#each oneEvent.participants}}
-  <p>{{this.username}}</p>
-  {{/each}}
+  
+  <p>Usuarios apuntados:{{numberOfParticipants}}</p>
+  
+  <form action="/event/{{oneEvent._id}}/details" method="post">
+      <button >Join</button>
+  </form>
+  {{#if messageError}}
+  <p>{{messageError}}</p>
+  {{/if}}
 
-  <form action="/event/{{oneEvent._id}}/join" method="POST">
-    <button type="submit">Join</button>
 </div>

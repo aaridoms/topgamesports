@@ -12,7 +12,7 @@ router.get("/", isLoggedIn, async (req, res, next) => {
   try {
     const allEvents = await Event.find();
     res.render("event/event-list", {
-      allEvents
+      allEvents,
     });
   } catch (error) {
     next(error);
@@ -22,10 +22,14 @@ router.get("/", isLoggedIn, async (req, res, next) => {
 // GET "/event/:eventId/details" => renderiza la vista de un evento
 router.get("/:eventId/details", isLoggedIn, async (req, res, next) => {
   try {
-    const oneEvent = await Event.findById(req.params.eventId).populate("game").populate("participants");
-    console.log(oneEvent)
+    const oneEvent = await Event.findById(req.params.eventId)
+      .populate("game")
+      .populate("participants");
+    const numberOfParticipants = oneEvent.participants.length;
+
     res.render("event/event-details", {
-      oneEvent
+      oneEvent,
+      numberOfParticipants,
     });
   } catch (error) {
     next(error);
@@ -37,7 +41,7 @@ router.get("/list", isLoggedIn, isAdmin, async (req, res, next) => {
   try {
     const allEvents = await Event.find().populate("game");
     res.render("admin/admin-event-list", {
-      allEvents
+      allEvents,
     });
   } catch (error) {
     next(error);
@@ -49,20 +53,17 @@ router.get("/new-event", isLoggedIn, isAdmin, async (req, res, next) => {
   try {
     const allGames = await Game.find();
     res.render("admin/admin-new-event", {
-      allGames
+      allGames,
     });
-  } catch (error) {
-    
-  }
+  } catch (error) {}
 });
 
 // POST "/event/create" => crea un evento
 router.post("/new-event", isLoggedIn, isAdmin, async (req, res, next) => {
-
   const { name, description, startDate, imageUrl, game } = req.body;
 
   try {
-    await Event.create({ name, description, startDate, imageUrl, game })
+    await Event.create({ name, description, startDate, imageUrl, game });
     res.redirect("/event/list");
   } catch (error) {
     next(error);
@@ -85,19 +86,17 @@ router.get("/:eventId/edit", isLoggedIn, isAdmin, async (req, res, next) => {
     const oneEvent = await Event.findById(req.params.eventId);
     const allGames = await Game.find().select({ title: 1 });
 
-    const cloneAllGames = JSON.parse( JSON.stringify(allGames) )
+    const cloneAllGames = JSON.parse(JSON.stringify(allGames));
 
-    cloneAllGames.forEach(eachGame => {
+    cloneAllGames.forEach((eachGame) => {
       if (oneEvent.game.toString() === eachGame._id.toString()) {
-        eachGame.isSelected = true
+        eachGame.isSelected = true;
       }
     });
 
-    console.log(cloneAllGames)
-
     res.render("admin/admin-event-edit", {
       oneEvent,
-      cloneAllGames
+      cloneAllGames,
     });
   } catch (error) {
     next(error);
@@ -106,12 +105,48 @@ router.get("/:eventId/edit", isLoggedIn, isAdmin, async (req, res, next) => {
 
 // POST "/event/:eventId/edit" => edita un evento
 router.post("/:eventId/edit", isLoggedIn, isAdmin, async (req, res, next) => {
-
   const { name, description, startDate, imageUrl, game } = req.body;
 
   try {
-    await Event.findByIdAndUpdate(req.params.eventId, { name, description, startDate, imageUrl, game });
+    await Event.findByIdAndUpdate(req.params.eventId, {
+      name,
+      description,
+      startDate,
+      imageUrl,
+      game,
+    });
     res.redirect("/event/list");
+  } catch (error) {
+    next(error);
+  }
+});
+
+// POST "/event/:eventId/join" => Usuario se añade al evento
+
+router.post("/:eventId/details", isLoggedIn, async (req, res, next) => {
+  try {
+    let oneEvent = await Event.findById(req.params.eventId).populate("game");
+    let numberOfParticipants = oneEvent.participants.length;
+    if (oneEvent.participants.includes(req.session.user._id)) {
+      res.status(400).render("event/event-details", {
+        messageError: "Ya estás añadido al evento",
+        oneEvent,
+        numberOfParticipants,
+      });
+    } else {
+      oneEvent = await Event.findByIdAndUpdate(
+        req.params.eventId,
+        { $push: { participants: req.session.user._id } },
+        { new: true }
+      );
+      numberOfParticipants = oneEvent.participants.length;
+      console.log(oneEvent);
+      // res.redirect(`/event/${req.params.eventId}/details`)
+      res.render("event/event-details", {
+        oneEvent,
+        numberOfParticipants,
+      });
+    }
   } catch (error) {
     next(error);
   }
