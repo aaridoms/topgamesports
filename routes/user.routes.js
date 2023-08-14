@@ -40,7 +40,7 @@ router.get("/list", isLoggedIn, isAdmin, async (req, res, next) => {
 
   try {
     const listOfUsers = await User.find({ role: "user" });
-    res.render("admin/user-list.hbs", {
+    res.render("admin/admin-user-list.hbs", {
       listOfUsers,
     });
   } catch (error) {
@@ -58,5 +58,7 @@ router.get("/:userId/delete", isLoggedIn, isAdmin, async (req, res, next) => {
     next(error);
   }
 });
+
+
 
 module.exports = router;

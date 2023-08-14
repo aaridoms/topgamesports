@@ -1,0 +1,29 @@
+<div>
+    <h1>Admin Game List</h1>
+    <a href="/game/new-game"><button>Añadir Juego</button></a>
+  
+    <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Rating</th>
+        <th>Launch Date</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each allGames}}
+      <tr>
+        <td>{{this.title}}</td>
+        <td>{{this.rating}}</td>
+        <td>{{this.launchDate}}</td>
+        <td>
+        <a href="/game/{{this._id}}/modify"><button>Editar</button></a>
+
+        <a href="/game/{{this._id}}/delete"><button>Eliminar</button></a>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
