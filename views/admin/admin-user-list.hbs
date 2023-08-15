@@ -1,21 +1,21 @@
 <div>
   <h3>Lista de usuarios</h3>
 
-  <table>
+  <table class="table table-striped table-hover" style="width: 1000px;">
     <thead>
       <tr>
-        <th>Username</th>
-        <th>Email</th>
-        <th>Acciones</th>
+        <th scope="col">Username</th>
+        <th scope="col">Email</th>
+        <th scope="col">Actions</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="table-group-divider" style="text-align: center;">
       {{#each listOfUsers}}
       <tr>
         <td>{{this.username}}</td>
         <td>{{this.email}}</td>
         <td>
-          <a href="/user/{{this._id}}/delete"><button>Eliminar</button></a>
+          <a href="/user/{{this._id}}/delete"><button class="btn btn-danger">Delete</button></a>
         </td>
       </tr>
       {{/each}}

@@ -49,5 +49,11 @@ flex-wrap: wrap;
 gap:20px;
 align-items: center;
 justify-content: center;
+}
+thead {
+  text-align: center;
+}
 
+tbody {
+  text-align: center;
 }
