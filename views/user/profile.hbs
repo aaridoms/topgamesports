@@ -1,22 +1,84 @@
-<div>
-  <h3>Bienvenido {{foundUser.username}}</h3>
+<div class="centerb">
+  <div class="details d-flex">
+    <div>
+      <img src="{{foundUser.profilePic}}" alt="potrait" , width="300px" />
+    </div>
+    <div>
+      <h3>Bienvenido {{foundUser.username}}</h3>
 
-  <img src="{{foundUser.profilePic}}" alt="potrait", width="100px">
+      <p>Tu email es: {{foundUser.email}}</p>
 
-  <p>Tu email es: {{foundUser.email}}</p>
+      <h5>Cambia tu foto de Perfil</h5>
+      <form
+        action="/user/profile-pic"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <label for="profilePic"></label>
+        <input type="file" name="profilePic" />
 
-  {{#each foundUser.favGame}}
-    <li><a href="/game/{{this._id}}/details">{{this.title}}</a></li>
-  {{/each}}
+        <button>Upload</button>
+      </form>
+    </div>
+  </div>
+  <div class="text-success" style="width: 800px">
+    <hr class="border border-primary border-3 opacity-75" />
+  </div>
+  <div>
+    <h5 class="d-flex justify-content-center">Check your Favourite Games</h5>
+    <div id="card-games">
+      {{#each foundUser.favGame}}
+        <div>
+          <div class="card" style="width: 15rem">
+            <a href="/game/{{this._id}}/details">
+              <img
+                src="{{this.cover}}"
+                class="card-img-top"
+                alt="{{this.title}}"
+                style="width: 15rem; height: 100px; object-fit: cover;object-position: center top"
+              />
+            </a>
 
-  {{#each userEvent}}
-    <li><a href="/event/{{this._id}}/details">{{this.name}}</a> - {{this.startDate}}</li>
-  {{/each}}
+            <div class="card-body">
+              <p class="d-flex justify-content-center">{{this.title}}</p>
 
-  <form action="/user/profile-pic" method="post" enctype="multipart/form-data">
-    <label for="profilePic"></label>
-    <input type="file" name="profilePic">
+              <a
+                href="/game/{{this._id}}/details"
+                class="btn btn-primary d-flex justify-content-center"
+              >CHECK GAME</a>
+            </div>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </div>
+  <div class="text-success" style="width: 800px">
+    <hr class="border border-primary border-3 opacity-75" />
+  </div>
+  <h5 class="d-flex justify-content-center">List of your upcoming events</h5>
+  <div id="card-games">
+    {{#each userEvent}}
+      <div>
+        <div class="card" style="width: 15rem">
+          <a href="/game/{{this._id}}/details">
+            <img
+              src="{{this.imageUrl}}"
+              class="card-img-top"
+              alt="{{this.name}}"
+              style="width: 15rem; height: 100px; object-fit: cover;object-position: center top"
+            />
+          </a>
 
-    <button>Upload</button>
-  </form>
+          <div class="card-body">
+            <p class="d-flex justify-content-center">{{this.name}}</p>
+            <p class="d-flex justify-content-center">{{this.startDate}} </p>
+            <a
+              href="/game/{{this._id}}/details"
+              class="btn btn-primary d-flex justify-content-center"
+            >CHECK EVENT</a>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
 </div>
