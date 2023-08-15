@@ -41,3 +41,11 @@ footer {
   align-items: center;
   margin-top: 20px;
 }
+
+thead {
+  text-align: center;
+}
+
+tbody {
+  text-align: center;
+}
