@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 
 const Game = require('../models/Game.model.js');
+const User = require('../models/User.model.js');
+const Event = require('../models/Event.model.js');
 
 const { updateLocals } = require('../middlewares/auth.middleware.js');
 
@@ -9,9 +11,13 @@ router.use(updateLocals)
 
 router.get("/", async (req, res, next) => {
   try {
-    const allGames = await Game.find();
+    const allGames = await Game.find().limit(3).skip(4);
+    // const oneUser = await User.findById(req.session.user._id);
+    const allEvents = await Event.find().limit(5).populate("game");
     res.render("index", {
-      allGames
+      allGames,
+      // oneUser,
+      allEvents,
     });
   } catch (error) {
     next(error);
