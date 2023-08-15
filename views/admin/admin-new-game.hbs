@@ -52,12 +52,12 @@
       <input type="date" class="form-control" name="launchDate" placeholder="Enter launch date">
     </div>
 
+    <button class="btn btn-success">Submit</button>
+
     {{#if errorMessage}}
-      <div class="alert alert-danger" role="alert"></div>
+      <div class="alert alert-warning" role="alert">
         <p>{{errorMessage}}</p>
       </div>
     {{/if}}
-    
-    <button class="btn btn-success">Submit</button>
   </form>
 </div>

@@ -14,10 +14,10 @@
         method="post"
         enctype="multipart/form-data"
       >
-        <label for="profilePic"></label>
-        <input type="file" name="profilePic" />
+        <label for="profilePic" class="form-label"></label>
+        <input type="file" name="profilePic" class="form-control"/>
 
-        <button>Upload</button>
+        <button class="btn btn-success">Upload</button>
       </form>
     </div>
   </div>
@@ -60,7 +60,7 @@
     {{#each userEvent}}
       <div>
         <div class="card" style="width: 15rem">
-          <a href="/game/{{this._id}}/details">
+          <a href="/event/{{this._id}}/details">
             <img
               src="{{this.imageUrl}}"
               class="card-img-top"
@@ -73,7 +73,7 @@
             <p class="d-flex justify-content-center">{{this.name}}</p>
             <p class="d-flex justify-content-center">{{this.startDate}} </p>
             <a
-              href="/game/{{this._id}}/details"
+              href="/event/{{this._id}}/details"
               class="btn btn-primary d-flex justify-content-center"
             >CHECK EVENT</a>
           </div>

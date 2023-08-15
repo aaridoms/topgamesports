@@ -61,6 +61,13 @@ router.get("/new-event", isLoggedIn, isAdmin, async (req, res, next) => {
 router.post("/new-event", isLoggedIn, isAdmin, async (req, res, next) => {
   const { name, description, startDate, imageUrl, game } = req.body;
 
+  // if (!name || !description || !startDate || !imageUrl || !game) {
+  //   res.render("admin/admin-new-event", {
+  //     errorMessage: "Todos los campos son obligatorios",
+  //   });
+  //   return;
+  // }
+
   try {
     await Event.create({ name, description, startDate, imageUrl, game });
     res.redirect("/event/list");
