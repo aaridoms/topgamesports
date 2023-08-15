@@ -1,8 +1,29 @@
-<div>
-  <h1>Esto es una lista de eventos</h1>
-  {{#each allEvents}}
-    <div>
-      <a href="/event/{{this._id}}/details"><h2>{{this.name}}</h2></a>
-    </div>
-  {{/each}}
+<div class="centerb">
+
+  <h1>INCOMING EVENTS</h1>
+  <div class="d-flex flex-column">
+    {{#each allEvents}}
+      <div class="d-flex" >
+
+        <div>
+          <a href="/event/{{this._id}}/details"><img
+              src="{{this.imageUrl}}"
+              alt="{{this.name}}"
+              style="width: 600px; height: 200px; object-fit: cover;"
+            /></a>
+        </div>
+        <div class="event-list">
+          <a href="/event/{{this._id}}/details"><h3>{{this.name}}</h3></a>
+          <p>{{this.description}}</p>
+          <h5>Start Date: {{this.startDate}}</h5>
+          <h5>GAME: {{this.game.title}}</h5>
+        </div>
+      </div>
+
+      <div class="text-success">
+        <hr class="border border-danger border-2 opacity-50" />
+      </div>
+    {{/each}}
+  </div>
+
 </div>

@@ -9,7 +9,7 @@ const { isLoggedIn, isAdmin } = require("../middlewares/auth.middleware.js");
 // GET "/event" => renderiza la vista de eventos
 router.get("/", isLoggedIn, async (req, res, next) => {
   try {
-    const allEvents = await Event.find();
+    const allEvents = await Event.find().populate("game");
     res.render("event/event-list", {
       allEvents,
     });

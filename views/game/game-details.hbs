@@ -1,34 +1,69 @@
-<div>
-  
-  <h1>{{oneGame.title}}</h1>
-  <img src="{{oneGame.cover}}" alt="{{oneGame.title}}-cover" width="300px">
+<div class="centerb">
+  <div class="details">
+    <div>
+      <img
+        src="{{oneGame.cover}}"
+        alt="{{oneGame.title}}-cover"
+        style="width: 600px; height: 600px; object-fit: cover; object-position: center top;"
+      />
 
-  <p>{{oneGame.description}}</p>
-  <h2>{{oneGame.rating}}</h2>
-  {{#each oneGame.platform}}
-    <li>{{this}}</li>
-  {{/each}}
+    </div>
+    <div>
 
-  <p>{{oneGame.launchDate}}</p>
+      <h2>{{oneGame.title}}</h2>
+      <p>{{oneGame.description}}</p>
+      <h4>Metascore: {{oneGame.rating}}</h4>
+      <div class="text-success">
+        <hr />
+      </div>
+      <h5>Platform(s)</h5>
+      {{#each oneGame.platform}}
+        <li>{{this}}</li>
+      {{/each}}
+      <div class="text-success">
+        <hr />
+      </div>
+      <h5>
+        Launch date:
+      </h5>
+      <p>{{oneGame.launchDate}}</p>
+      <div class="text-success">
+        <hr />
+      </div>
+      <h5>Genre(s):</h5>
+      {{#each oneGame.genre}}
+        <li>{{this}}</li>
+      {{/each}}
+      <div class="text-success">
+        <hr />
+      </div>
+      <div class="d-flex justify-content-around">
+        <form action="/user/{{oneGame._id}}/favgame" method="post">
+          <button class="btn btn-outline-warning">Add to favorites</button>
+        </form>
 
-  {{#each oneGame.genre}}
-    <li>{{this}}</li>
-  {{/each}}
+        <form action="/user/{{oneGame._id}}/no-favgame" method="post">
+          <button class="btn btn-outline-danger">Delete from favorites</button>
+        </form>
+      </div>
+      <div class="d-flex justify-content-center">
+        {{#if message}}
+          <p>{{message}}</p>
+        {{/if}}
 
-  <iframe width="560" height="315" src={{oneGame.video}}
-  title="YouTube video player" frameborder="0" 
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
-  </iframe>
-
-  <form action="/user/{{oneGame._id}}/favgame" method="post">
-    <button>Add to favorites</button>
-  </form>
-
-  <form action="/user/{{oneGame._id}}/no-favgame" method="post">
-    <button>Delete from favorites</button>
-  </form>
-
-  {{#if message}}
-    <p>{{message}}</p>
-  {{/if}}
+      </div>
+    </div>
+  </div>
+  <div>
+    <iframe
+      width="1260"
+      height="815"
+      src={{oneGame.video}}
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    >
+    </iframe>
+  </div>
 </div>
