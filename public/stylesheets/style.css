@@ -42,6 +42,21 @@ footer {
   margin-top: 20px;
 }
 
+.formsStyles {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 500px;
+}
+
 #card-games{
 display: flex;
 flex-direction: row;
@@ -50,12 +65,15 @@ gap:20px;
 align-items: center;
 justify-content: center;
 }
+
 thead {
   text-align: center;
+  font-size: 25px;
 }
 
 tbody {
   text-align: center;
+  font-size: 25px;
 }
 
 .details{
