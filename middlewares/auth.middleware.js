@@ -17,9 +17,11 @@ const isAdmin = (req, res, next) => {
 const updateLocals = (req, res, next) => {
   if (req.session.user === undefined) {
     res.locals.isUserActive = false;
-    // ! userimage
+    res.locals.Image = undefined
+    
   } else {
     res.locals.isUserActive = true;
+    res.locals.Image = req.session.user.profilePic;
     if (req.session.user.role === "admin") {
       res.locals.isAdminActive = true;
     } else {

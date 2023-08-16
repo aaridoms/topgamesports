@@ -61,14 +61,17 @@ router.get("/new-event", isLoggedIn, isAdmin, async (req, res, next) => {
 router.post("/new-event", isLoggedIn, isAdmin, async (req, res, next) => {
   const { name, description, startDate, imageUrl, game } = req.body;
 
-  // if (!name || !description || !startDate || !imageUrl || !game) {
-  //   res.render("admin/admin-new-event", {
-  //     errorMessage: "Todos los campos son obligatorios",
-  //   });
-  //   return;
-  // }
-
+  
   try {
+
+    const allGames = await Game.find().select({title: 1})
+    if (name === "" || description  === "" || startDate  === "" || imageUrl === "" || game  === "") {
+      res.render("admin/admin-new-event", {
+        errorMessage: "Todos los campos son obligatorios",
+        allGames
+      });
+      return;
+    }
     await Event.create({ name, description, startDate, imageUrl, game });
     res.redirect("/event/list");
   } catch (error) {
@@ -112,8 +115,26 @@ router.get("/:eventId/edit", isLoggedIn, isAdmin, async (req, res, next) => {
 // POST "/event/:eventId/edit" => edita un evento
 router.post("/:eventId/edit", isLoggedIn, isAdmin, async (req, res, next) => {
   const { name, description, startDate, imageUrl, game } = req.body;
-
   try {
+    const oneEvent = await Event.findById(req.params.eventId);
+    const allGames = await Game.find().select({ title: 1 });
+
+    const cloneAllGames = JSON.parse(JSON.stringify(allGames));
+
+    cloneAllGames.forEach((eachGame) => {
+      if (oneEvent.game.toString() === eachGame._id.toString()) {
+        eachGame.isSelected = true;
+      }
+    });
+
+    if (name === "" || description  === "" || startDate  === "" || imageUrl === "" || game  === "") {
+      res.render("admin/admin-event-edit", {
+        errorMessage: "Todos los campos son obligatorios",
+        oneEvent,
+      cloneAllGames,
+      });
+      return;
+    }
     await Event.findByIdAndUpdate(req.params.eventId, {
       name,
       description,

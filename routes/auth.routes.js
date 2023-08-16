@@ -107,7 +107,7 @@ router.post("/login", async (req, res, next) => {
       _id: foundUser._id,
       username: foundUser.username,
       role: foundUser.role,
-      // imagen
+      profilePic: foundUser.profilePic
     };
 
     req.session.save(() => {

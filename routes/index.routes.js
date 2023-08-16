@@ -14,7 +14,8 @@ router.get("/", async (req, res, next) => {
     const allGames = await Game.find().limit(3).skip(4);
     // const oneUser = await User.findById(req.session.user._id);
     const allEvents = await Event.find().limit(5).populate("game");
-    console.log(allGames)
+    
+
     res.render("index", {
       allGames,
       // oneUser,

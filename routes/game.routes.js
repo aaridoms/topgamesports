@@ -57,55 +57,64 @@ router.get("/new-game", isLoggedIn, isAdmin, (req, res, next) => {
 });
 
 // post "/game/new-game" => Inserta un nuevo juego en la base de datos
-router.post("/new-game", isLoggedIn, isAdmin, uploader.single("cover"), async (req, res, next) => {
-  const {
-    title,
-    description,
-    cover,
-    genre,
-    rating,
-    video,
-    platform,
-    launchDate,
-    isCompetitive,
-  } = req.body;
-
-  if (
-    title === "" ||
-    description === "" ||
-    cover === "" ||
-    genre === "" ||
-    rating === "" ||
-    video === "" ||
-    platform === "" ||
-    launchDate === "" ||
-    isCompetitive === ""
-  ) {
-    res
-      .status(400)
-      .render("admin/admin-new-game", {
-        errorMessage: "Los campos no pueden estar vacios",
-      });
-    return;
-  }
-
-  try {
-    await Game.create({
+router.post(
+  "/new-game",
+  isLoggedIn,
+  isAdmin,
+  uploader.single("cover"),
+  async (req, res, next) => {
+    const {
       title,
       description,
-      cover: req.file.path,
+      cover,
       genre,
       rating,
       video,
       platform,
       launchDate,
-      isCompetitive,
-    });
-    res.redirect("/game/list");
-  } catch (error) {
-    next(error);
+      isCompetitive, 
+    } = req.body;
+
+    if (
+      title === "" ||
+      description === "" ||
+      cover === "" ||
+      genre === "" ||
+      rating === "" ||
+      video === "" ||
+      platform === "" ||
+      launchDate === "" ||
+      isCompetitive === ""
+    ) {
+      res.status(400).render("admin/admin-new-game", {
+        errorMessage: "Los campos no pueden estar vacios",
+      });
+      return;
+    }
+
+    try {
+      let imageUrl;
+      if (req.file) {
+        imageUrl = req.file.path;
+      }
+
+      await Game.create({
+        title,
+        description,
+        cover: imageUrl,
+        genre,
+        rating,
+        video,
+        platform,
+        launchDate,
+        isCompetitive,
+      });
+      res.redirect("/game/list");
+    } catch (error) {
+      next(error);
+    }
   }
-});
+);
 
 // GET "/game/:gameId/edit" => Renderiza al formulario de "editar juegos"
 router.get("/:gameId/edit", isLoggedIn, isAdmin, async (req, res, next) => {
@@ -119,54 +128,59 @@ router.get("/:gameId/edit", isLoggedIn, isAdmin, async (req, res, next) => {
 });
 
 // POST "/game/:gameId/edit" => Edita un juego en la base de datos
-router.post("/:gameId/edit", isLoggedIn, isAdmin, uploader.single("cover"), async (req, res, next) => {
-  const {
-    title,
-    description,
-    cover,
-    genre,
-    rating,
-    video,
-    platform,
-    launchDate,
-    isCompetitive,
-  } = req.body;
-
-  if (
-    title === "" ||
-    description === "" ||
-    cover === "" ||
-    genre === "" ||
-    rating === "" ||
-    video === "" ||
-    platform === "" ||
-    launchDate === "" ||
-    isCompetitive === ""
-  ) {
-    res
-      .status(400)
-      .render("admin/admin-game-edit", {
-        errorMessage: "Los campos no pueden estar vacios",
-      });
-    return;
-  }
-
-  try {
-    await Game.findByIdAndUpdate(req.params.gameId, {
+router.post(
+  "/:gameId/edit",
+  isLoggedIn,
+  isAdmin,
+  uploader.single("cover"),
+  async (req, res, next) => {
+    const {
       title,
       description,
-      cover: req.file.path,
+      cover,
       genre,
       rating,
       video,
       platform,
       launchDate,
       isCompetitive,
-    });
-    res.redirect("/game/list");
-  } catch (error) {
-    next(error);
+    } = req.body;
+
+    try {
+      const oneGame = await Game.findById(req.params.gameId);
+      if (
+        title === "" ||
+        description === "" ||
+        cover === "" ||
+        genre === "" ||
+        rating === "" ||
+        video === "" ||
+        platform === "" ||
+        launchDate === "" ||
+        isCompetitive === ""
+      ) {
+        res.status(400).render("admin/admin-game-edit", {
+          errorMessage: "Los campos no pueden estar vacios",
+          oneGame,
+        });
+        return;
+      }
+      await Game.findByIdAndUpdate(req.params.gameId, {
+        title,
+        description,
+        cover: req.file.path,
+        genre,
+        rating,
+        video,
+        platform,
+        launchDate,
+        isCompetitive,
+      });
+      res.redirect("/game/list");
+    } catch (error) {
+      next(error);
+    }
   }
-});
+);
 
 module.exports = router;

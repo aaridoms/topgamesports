@@ -12,7 +12,7 @@ const gameSchema = new Schema({
   },
   cover: {
     type: String,
-    default: "",
+    default: "https://res.cloudinary.com/ddaezutq8/image/upload/v1692181846/Captura_de_pantalla_2023-08-16_122851_mfrlvr.png",
   },
   genre: [
     {
