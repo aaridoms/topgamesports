@@ -1,6 +1,7 @@
 body {
   padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /* font-family: 'Roboto Mono', monospace; */
 }
 
 a {
@@ -16,13 +17,8 @@ nav {
   font-size: 25px;
 }
 
-/* .bcolor {
-  background-color: #353945;
-  color: #A0A5C3;
-}
-
-.bcolor a {
-  color: #A0A5C3;
+/* li {
+  font-weight: bold;
 } */
 
 footer {
@@ -104,4 +100,26 @@ justify-content: center;
   object-fit: cover;
   object-position: center top;
   border: 1px solid lightgrey;
+}
+
+.profilePic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+
+.filter {
+  width: 1500px;
+  margin-bottom: 10px;
+}
+
+.filter li {
+  list-style: none;
+}
+
+.launchDate {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
 }

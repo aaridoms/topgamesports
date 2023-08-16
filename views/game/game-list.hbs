@@ -1,33 +1,84 @@
-
 <div class="centerb">
-<div>
-  <h1>TOP 25 GAMES</h1>
+  <div>
+    <h1>TOP 25 GAMES</h1>
+  </div>
 
-</div>
-
-<div id="card-games">
-  {{#each allGames}}
-    <div>
-      <div class="card" style="width: 23rem;">
-        <a href="/game/{{this._id}}/details">
-          <img
-            src="{{this.cover}}"
-            class="card-img-top"
-            alt="{{this.title}}"
-            style="width: 366px; height: 320px; object-fit: cover; object-position: center top;"
-          />
+  <div class="d-flex justify-content-end filter">
+    <ul class="" style="--bs-scroll-height: 100px;">
+      <li class="nav-item dropdown">
+        <a
+          class="nav-link dropdown-toggle"
+          href="#"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill="#000000"
+              d="M472 168H40a24 24 0 0 1 0-48h432a24 24 0 0 1 0 48Zm-80 112H120a24 24 0 0 1 0-48h272a24 24 0 0 1 0 48Zm-96 112h-80a24 24 0 0 1 0-48h80a24 24 0 0 1 0 48Z"
+            />
+          </svg>
         </a>
+        <ul class="dropdown-menu">
+          <li>
+            <form action="/game/filter/rating-up" method="post">
+              <button>Rating Up</button>
+            </form>
+          </li>
+          <li>
+            <form action="/game/filter/rating-down" method="post">
+              <button>Rating Down</button>
+            </form>
+          </li>
+          <li>
+            <form action="/game/filter/launch-date-up" method="post">
+              <button>launch Date Up</button>
+            </form>
+          </li>
+          <li>
+            <form action="/game/filter/launch-date-down" method="post">
+              <button>launch Date Down</button>
+            </form>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
 
-        <div class="card-body">
-          <h5 class="card-title">{{this.title}}</h5>
-          <p class="card-text">RATING: {{this.rating}} </p>
-          <a
-            href="/game/{{this._id}}/details"
-            class="btn btn-primary d-flex justify-content-center"
-          >CHECK GAME</a>
+  <div id="card-games">
+    {{#each allGames}}
+      <div>
+        <div class="card" style="width: 23rem;">
+          <a href="/game/{{this._id}}/details">
+            <img
+              src="{{this.cover}}"
+              class="card-img-top"
+              alt="{{this.title}}"
+              style="width: 366px; height: 320px; object-fit: cover; object-position: center top;"
+            />
+          </a>
+
+          <div class="card-body">
+            <h5
+              class="card-title d-flex justify-content-center"
+            >{{this.title}}</h5>
+            <div class="d-flex justify-content-between">
+              <p class="card-text">RATING: {{this.rating}}</p>
+              <small>{{this.launchDate}}</small>
+            </div>
+            <a
+              href="/game/{{this._id}}/details"
+              class="btn btn-primary d-flex justify-content-center"
+            >CHECK GAME</a>
+          </div>
         </div>
       </div>
-    </div>
-  {{/each}}
+    {{/each}}
+  </div>
 </div>
-    </div>

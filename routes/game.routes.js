@@ -183,4 +183,52 @@ router.post(
   }
 );
 
+// POST "/game/filter/rating-up" => Filtra los juegos por rating descendente
+router.post("/filter/rating-up", isLoggedIn, async (req, res, next) => {
+  try {
+    const allGames = await Game.find().sort({ rating: -1 });
+    res.render("game/game-list", {
+      allGames,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+// POST "/game/filter" => Filtra los juegos por rating ascendente
+router.post("/filter/rating-down", isLoggedIn, async (req, res, next) => {
+  try {
+    const allGames = await Game.find().sort({ rating: 1 });
+    res.render("game/game-list", {
+      allGames,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+// POST "/game/filter/launch-date-up" => Filtra los juegos por fecha de lanzamiento descendente
+router.post("/filter/launch-date-up", isLoggedIn, async (req, res, next) => {
+  try {
+    const allGames = await Game.find().sort({ launchDate: -1 });
+    res.render("game/game-list", {
+      allGames,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+// POST "/game/filter/launch-date-down" => Filtra los juegos por fecha de lanzamiento ascendente
+router.post("/filter/launch-date-down", isLoggedIn, async (req, res, next) => {
+  try {
+    const allGames = await Game.find().sort({ launchDate: 1 });
+    res.render("game/game-list", {
+      allGames,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;
