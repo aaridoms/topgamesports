@@ -1,7 +1,7 @@
 <div class="formsStyles">
   <H1>Add a new Game</H1>
 
-  <form action="/game/new-game" method="post">
+  <form action="/game/new-game" method="post" enctype="multipart/form-data">
     <div class="form-group">
       <label for="title">Title</label>
       <input type="text" class="form-control" name="title"  placeholder="Enter title">
@@ -14,7 +14,7 @@
     
     <div class="form-group">
       <label for="cover">Cover</label>
-      <input type="text" class="form-control" name="cover">
+      <input type="file" class="form-control" name="cover">
     </div>
 
     <div class="form-group">
@@ -23,7 +23,6 @@
         <option value="action">Action</option>
         <option value="adventure">Adventure</option>
         <option value="shooter">Shooter</option>
-        <!-- Add more genres -->
       </select>
     </div>
 

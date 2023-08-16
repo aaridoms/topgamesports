@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 const { isLoggedIn, isAdmin } = require("../middlewares/auth.middleware.js");
+const uploader = require("../middlewares/cloudinary.middleware.js");
 
 const Game = require("../models/Game.model.js");
 
@@ -56,7 +57,7 @@ router.get("/new-game", isLoggedIn, isAdmin, (req, res, next) => {
 });
 
 // post "/game/new-game" => Inserta un nuevo juego en la base de datos
-router.post("/new-game", isLoggedIn, isAdmin, async (req, res, next) => {
+router.post("/new-game", isLoggedIn, isAdmin, uploader.single("cover"), async (req, res, next) => {
   const {
     title,
     description,
@@ -92,7 +93,7 @@ router.post("/new-game", isLoggedIn, isAdmin, async (req, res, next) => {
     await Game.create({
       title,
       description,
-      cover,
+      cover: req.file.path,
       genre,
       rating,
       video,
@@ -110,6 +111,7 @@ router.post("/new-game", isLoggedIn, isAdmin, async (req, res, next) => {
 router.get("/:gameId/edit", isLoggedIn, isAdmin, async (req, res, next) => {
   try {
     const oneGame = await Game.findById(req.params.gameId);
+
     res.render("admin/admin-game-edit", { oneGame });
   } catch (error) {
     next(error);
@@ -117,7 +119,7 @@ router.get("/:gameId/edit", isLoggedIn, isAdmin, async (req, res, next) => {
 });
 
 // POST "/game/:gameId/edit" => Edita un juego en la base de datos
-router.post("/:gameId/edit", isLoggedIn, isAdmin, async (req, res, next) => {
+router.post("/:gameId/edit", isLoggedIn, isAdmin, uploader.single("cover"), async (req, res, next) => {
   const {
     title,
     description,
@@ -153,7 +155,7 @@ router.post("/:gameId/edit", isLoggedIn, isAdmin, async (req, res, next) => {
     await Game.findByIdAndUpdate(req.params.gameId, {
       title,
       description,
-      cover,
+      cover: req.file.path,
       genre,
       rating,
       video,

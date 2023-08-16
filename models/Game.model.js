@@ -4,34 +4,53 @@ const gameSchema = new Schema({
   title: {
     type: String,
     require: true,
-    unique: true
+    unique: true,
   },
   description: {
     type: String,
     require: true,
   },
   cover: {
-    type: String, // Imagen guardada online
-    default: ""
+    type: String,
+    default: "",
   },
-  genre: {
-    type: [String]
-  },
+  genre: [
+    {
+      type: String,
+      enum: [
+        "Action",
+        "Adventure",
+        "RPG",
+        "Strategy",
+        "Sports",
+        "Simulation",
+        "MMO",
+        "Puzzle",
+        "Other",
+        "Terror",
+        "Shooter",
+        "Casual",
+        "Fantasy",
+        "Platform",
+        "Western",
+      ],
+    },
+  ],
   rating: {
-    type: Number
+    type: Number,
   },
   video: {
-    type: String
+    type: String,
   },
   platform: [
     {
       type: String,
-      enum: ["Steam", "Sony", "Xbox", "Nintendo"]
-    }
+      enum: ["Steam", "Sony", "Xbox", "Nintendo"],
+    },
   ],
   launchDate: {
     type: Date,
-    get: function(date) {
+    get: function (date) {
       if (!date) {
         return null;
       }
@@ -41,12 +60,12 @@ const gameSchema = new Schema({
       const year = date.getFullYear();
 
       return `${day}/${month}/${year}`;
-    }
+    },
   },
   isCompetitive: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
 });
 
 const Game = model("Game", gameSchema);
