@@ -147,6 +147,12 @@ router.post(
     } = req.body;
 
     try {
+
+      let imageUrl;
+      if (req.file) {
+        imageUrl = req.file.path;
+      }
+
       const oneGame = await Game.findById(req.params.gameId);
       if (
         title === "" ||
@@ -168,7 +174,7 @@ router.post(
       await Game.findByIdAndUpdate(req.params.gameId, {
         title,
         description,
-        cover: req.file.path,
+        cover: imageUrl,
         genre,
         rating,
         video,
@@ -223,6 +229,18 @@ router.post("/filter/launch-date-up", isLoggedIn, async (req, res, next) => {
 router.post("/filter/launch-date-down", isLoggedIn, async (req, res, next) => {
   try {
     const allGames = await Game.find().sort({ launchDate: 1 });
+    res.render("game/game-list", {
+      allGames,
+    });
+  } catch (error) {
+    next(error);
+  }
+});
+
+// POST "/game/filter/competitive" => Filtra los juegos por competitivo
+router.post("/filter/competitive", isLoggedIn, async (req, res, next) => {
+  try {
+    const allGames = await Game.find({ isCompetitive: true });
     res.render("game/game-list", {
       allGames,
     });

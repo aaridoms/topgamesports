@@ -34,6 +34,7 @@ const gameSchema = new Schema({
         "Platform",
         "Western",
         "MOBA",
+        "Terror"
       ],
     },
   ],

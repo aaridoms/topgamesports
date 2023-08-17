@@ -43,10 +43,9 @@
     <div class="mb-3">
     <label for="platform" class="form-label">Platform</label>
       <select name="platform" class="form-control" multiple>
-        <option value="Sony">Sony</option>
-        <option value="Xbox">Xbox</option>
-        <option value="Nintendo">Nintendo</option>
-        <option value="Steam">Steam</option>
+          {{#each oneGame.platform}}
+            <option value="{{this}}" selected>{{this}}</option>
+          {{/each}}
       </select>
     </div>
 
