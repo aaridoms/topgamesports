@@ -8,6 +8,10 @@ a {
   color: #00b7ff;
 }
 
+h1, h2, h3, h4, h6, p, small{
+  font-family: 'Roboto Mono', monospace;
+}
+
 h1 {
   color: 15px;
 }
@@ -158,6 +162,7 @@ tbody {
   gap: 20px;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 #eventHOne {

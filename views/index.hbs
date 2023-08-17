@@ -53,19 +53,3 @@
     {{/each}}
   </div>
 </div>
-
-{{#if isUserActive}}
-<div class="tournamentsList">
-  {{#each apiN}}
-    <div class="card">
-      <h5 class="card-header">{{this.tournament.name}}</h5>
-      <div class="card-body">
-        <h5 class="card-title"><span style="color: blue;"><img src="{{this.imageA}}" width="30px" height="30px">{{this.awayTeam.name}}({{this.awayTeam.nameCode}})</span>
-         VS <span style="color: red;"><img src="{{this.imageH}}" width="30px" height="30px">{{this.homeTeam.name}}({{this.homeTeam.nameCode}})</span></h5>
-         <small>Best of {{this.bestOf}}</small>
-        <p class="card-text">{{this.tournament.category.name}}</p>
-      </div>
-    </div>
-  {{/each}}
-</div>
-{{/if}}
