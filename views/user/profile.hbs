@@ -4,11 +4,11 @@
       <img src="{{foundUser.profilePic}}" alt="potrait" , width="300px" />
     </div>
     <div>
-      <h3>Bienvenido {{foundUser.username}}</h3>
+      <h3>Welcome {{foundUser.username}}</h3>
 
-      <p>Tu email es: {{foundUser.email}}</p>
+      <p>Your email address is: {{foundUser.email}}</p>
 
-      <h5>Cambia tu foto de Perfil</h5>
+      <h5>Change your profile picture</h5>
       <form
         action="/user/profile-pic"
         method="post"
@@ -20,8 +20,8 @@
         <button class="btn btn-success">Upload</button>
       </form>
       {{#if errorMessage}}
-      <div class="alert alert-danger" role="alert">
-        <p>{{errorMessage}}</p>
+      <div class="alert alert-danger " role="alert" style="height: 20px;">
+        <p class="d-flex justify-content-center" >{{errorMessage}}</p>
       </div>
     {{/if}}
     </div>
@@ -60,7 +60,7 @@
   <div class="text-success" style="width: 800px">
     <hr class="border border-primary border-3 opacity-75" />
   </div>
-  <h5 class="d-flex justify-content-center">List of your upcoming events</h5>
+  <h5 class="d-flex justify-content-center">List of your Upcoming Events</h5>
   <div id="card-games">
     {{#each userEvent}}
       <div>

@@ -67,7 +67,7 @@ router.post("/new-event", isLoggedIn, isAdmin, async (req, res, next) => {
     const allGames = await Game.find().select({title: 1})
     if (name === "" || description  === "" || startDate  === "" || imageUrl === "" || game  === "") {
       res.render("admin/admin-new-event", {
-        errorMessage: "Todos los campos son obligatorios",
+        errorMessage: "All fields are required",
         allGames
       });
       return;
@@ -129,7 +129,7 @@ router.post("/:eventId/edit", isLoggedIn, isAdmin, async (req, res, next) => {
 
     if (name === "" || description  === "" || startDate  === "" || imageUrl === "" || game  === "") {
       res.render("admin/admin-event-edit", {
-        errorMessage: "Todos los campos son obligatorios",
+        errorMessage: "All fields are required",
         oneEvent,
       cloneAllGames,
       });
@@ -155,7 +155,7 @@ router.post("/:eventId/join", isLoggedIn, async (req, res, next) => {
     let numberOfParticipants = oneEvent.participants.length;
     if (oneEvent.participants.includes(req.session.user._id)) {
       res.status(400).render("event/event-details", {
-        messageError: "Ya estás añadido al evento",
+        messageError: "You are already joined to the event",
         oneEvent,
         numberOfParticipants,
       });
@@ -185,7 +185,7 @@ router.post("/:eventId/leave", isLoggedIn, async (req, res, next) => {
     let numberOfParticipants = oneEvent.participants.length;
     if (!oneEvent.participants.includes(req.session.user._id)) {
       res.status(400).render("event/event-details", {
-        messageError: "No estas en el evento",
+        messageError: "You have not joined the event",
         oneEvent,
         numberOfParticipants,
       });

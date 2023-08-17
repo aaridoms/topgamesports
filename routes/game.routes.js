@@ -87,7 +87,7 @@ router.post(
       isCompetitive === ""
     ) {
       res.status(400).render("admin/admin-new-game", {
-        errorMessage: "Los campos no pueden estar vacios",
+        errorMessage: "Fields cannot be empty",
       });
       return;
     }
@@ -166,7 +166,7 @@ router.post(
         isCompetitive === ""
       ) {
         res.status(400).render("admin/admin-game-edit", {
-          errorMessage: "Los campos no pueden estar vacios",
+          errorMessage: "Fields cannot be empty",
           oneGame,
         });
         return;

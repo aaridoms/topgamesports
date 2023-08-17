@@ -8,7 +8,7 @@
       />
     </div>
     <div>
-      <h5>Detalles del evento</h5>
+      <h5>Event Details</h5>
       <h2>{{oneEvent.name}}</h2>
       <h4>GAME:
         <a
@@ -24,7 +24,7 @@
       </div>
       <h5>START DATE:{{oneEvent.startDate}}</h5>
 
-      <p>Usuarios apuntados:{{numberOfParticipants}}</p>
+      <p>Current Users who joined the event:{{numberOfParticipants}}</p>
 
       <div class="d-flex">
         <form action="/event/{{oneEvent._id}}/join" method="post">

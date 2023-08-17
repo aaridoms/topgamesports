@@ -24,21 +24,21 @@ router.post("/signup", async (req, res, next) => {
     repitPassword === ""
   ) {
     res.status(400).render("auth/signup", {
-      errorMessage: "Todos los campos son obligatorios",
+      errorMessage: "All fields are required",
     });
     return;
   }
 
   if (!regexPassword.test(password)) {
     res.status(400).render("auth/signup", {
-      errorMessage: "El email o la contraseña no es válida",
+      errorMessage: "The email or password is invalid",
     });
     return;
   }
 
   if (!regexEmail.test(email)) {
     res.status(400).render("auth/signup", {
-      errorMessage: "El email o la contraseña no es válida",
+      errorMessage: "The email or password is invalid",
     });
     return;
   }
@@ -46,7 +46,7 @@ router.post("/signup", async (req, res, next) => {
   if (password !== repitPassword) {
     res
       .status(400)
-      .render("auth/signup", { errorMessage: "Las contraseñas no coinciden" });
+      .render("auth/signup", { errorMessage: " Passwords do not match" });
     return;
   }
 
@@ -57,7 +57,7 @@ router.post("/signup", async (req, res, next) => {
     if (foundUser !== null) {
       res
         .status(400)
-        .render("auth/signup", { errorMessage: "Usuario o email ya existen" });
+        .render("auth/signup", { errorMessage: " User or email already exist" });
       return;
     }
 
@@ -86,7 +86,7 @@ router.post("/login", async (req, res, next) => {
 
     if (foundUser === null) {
       res.status(400).render("auth/login.hbs", {
-        errorMessage: "No existe el Username",
+        errorMessage: "Username does not exist",
       });
       return;
     }
@@ -98,7 +98,7 @@ router.post("/login", async (req, res, next) => {
 
     if (isPasswordCorrect === false) {
       res.status(400).render("auth/login.hbs", {
-        errorMessage: "La constraseña no coincide",
+        errorMessage: "The password does not match",
       });
       return;
     }
