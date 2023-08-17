@@ -1,7 +1,7 @@
 [
   {
     "title": "The Legend of Zelda Ocarina of Time",
-    "description": "La historia del juego se enfoca en el joven héroe Link, quien emprende una aventura en el reino de Hyrule para detener a Ganondorf, rey de la tribu Gerudo, antes de que encuentre la Trifuerza, una reliquia sagrada capaz de concederle cualquier deseo a su poseedor. Para ello, debe viajar a través del tiempo y explorar varios templos con el fin de despertar a algunos sabios que tienen el poder para aprisionar de forma definitiva a Ganondorf. ",
+    "description": "The Legend of Zelda: Ocarina of Time is a fantasy action-adventure game set in an expansive environment. The player controls series protagonist Link from a third-person perspective in a three-dimensional world. Link primarily fights with a sword and shield but can also use other weapons such as projectiles, bombs, and magic spells.",
     "cover": "https://upload.wikimedia.org/wikipedia/en/5/57/The_Legend_of_Zelda_Ocarina_of_Time.jpg",
     "genre": ["Action", "Adventure", "Fantasy"],
     "rating": 99,
@@ -12,7 +12,7 @@
   },
   {
     "title": "Final Fantasy VII",
-    "description": "El argumento de Final Fantasy VII se centra en el protagonista Cloud Strife, un mercenario que inicialmente se une al grupo ecoterrorista AVALANCHA para detener el control mundial de la corporación Shinra que está drenando la vida del planeta para usarla como fuente de energía. Conforme la historia avanza, Cloud y sus aliados se ven envueltos en un conflicto que representa una amenaza aún mayor para el mundo, enfrentándose a Sefirot, el antagonista principal del juego.",
+    "description": "The game's story follows Cloud Strife, a mercenary who joins an eco-terrorist organization to stop a world-controlling megacorporation from using the planet's life essence as an energy source. Events send Cloud and his allies in pursuit of Sephiroth, a superhuman who seeks to wound the planet and harness its healing power in order to be reborn as a demigod. During the journey, Cloud builds close friendships with his party members, including Aerith Gainsborough, who holds the secret to saving their world.",
     "cover": "https://upload.wikimedia.org/wikipedia/en/c/c2/Final_Fantasy_VII_Box_Art.jpg",
     "genre": ["RPG", "Adventure", "Fantasy"],
     "rating": 92,
@@ -23,7 +23,7 @@
   },
   {
     "title": "Metal Gear Solid",
-    "description": "Metal Gear Solid sigue a Solid Snake, un soldado que se infiltra en una instalación de armas nucleares para neutralizar la amenaza terrorista de FOXHOUND, una unidad genéticamente mejorada de fuerzas especiales. Snake debe liberar a dos importantes rehenes, confrontar a los terroristas y evitar el lanzamiento de un ataque nuclear. Para ello, cuenta con un equipo de apoyo a distancia que le comunica vía códec información sobre la misión, comandada por el coronel Roy Campbell, y complementada por personal médico, de análisis de datos, expertos en armas y en supervivencia.",
+    "description": "Players control Solid Snake, a soldier who infiltrates a nuclear weapons facility to neutralize the terrorist threat from FOXHOUND, a renegade special forces unit. Snake must liberate hostages and stop the terrorists from launching a nuclear strike. Cinematic cutscenes were rendered using the in-game engine and graphics, and voice acting is used throughout.",
     "cover": "https://coverproject.sfo2.cdn.digitaloceanspaces.com/playstation_1/ps1_metalgearsolid_front_eu_thumb.jpg", 
     "genre": ["Action"],
     "rating": 94,
@@ -34,7 +34,7 @@
   },
   {
     "title": "Super Mario 64",
-    "description": "Es el primer juego de Super Mario que presenta una jugabilidad en 3D, que combina la tradicional de Super Mario, el estilo visual y los personajes en un gran mundo abierto. Bowser, el principal antagonista de la franquicia, invade el castillo de la Princesa Peach y esconde las fuentes de protección del castillo, las Power Stars, en muchos mundos diferentes dentro de pinturas mágicas. Como Mario, el jugador recolecta las Power Stars para desbloquear los suficientes castillos de la Princesa Peach y así llegar a Bowser y rescatarla.",
+    "description": " In the game, Bowser, the primary antagonist of the Super Mario franchise, invades Princess Peach's castle and hides the castle's sources of protection, the Power Stars, in many different worlds inside magical paintings. As Mario, the player collects Power Stars to unlock enough of Princess Peach's castle to get to Bowser and rescue Princess Peach.",
     "cover": "https://coverproject.sfo2.cdn.digitaloceanspaces.com/nintendo_64/label_n64_supermario64_eu_thumb.jpg", 
     "genre": ["Platform"],
     "rating": 94,
@@ -45,7 +45,7 @@
   },
   {
     "title": "The Last of Us",
-    "description": " Tras un desastre biológico, la mayoría de la población del mundo ha perecido y las calles están desiertas y en ruinas. Nosotros controlaremos a Joel, un hombre acompañado de una joven, Ellie, teniendo que sobrevivir en un mundo lleno de peligros, con otros supervivientes hostiles y una raza de mutantes que nos amenaza a cada paso.",
+    "description": "The Last of Us is an action-adventure game played from a third-person perspective. The player traverses post-apocalyptic environments such as towns, buildings, forests, and sewers to advance the story. The player can use firearms, improvised weapons, hand-to-hand combat, and stealth to defend against hostile humans and cannibalistic creatures infected by a mutated strain of the Cordyceps fungus. For most of the game, the player takes control of Joel, a man tasked with escorting a young girl, Ellie, across the United States.",
     "cover": "https://i.3djuegos.com/juegos/8274/last_of_us/fotos/ficha/last_of_us-2190366.webp", 
     "genre": ["Terror","Action","Adventure"],
     "rating": 95,
@@ -56,29 +56,29 @@
   },
   {
     "title": "Grand Theft Auto V",
-    "description": " La quinta parte de Grand Theft Auto para PC vuelve a la costa oeste americana, ambientándose en la ciudad de Los Santos (Los Ángeles) y sus alrededores, con una historia ambientada en la actualidad, especialmente en las consecuencias de la crisis económica. Está protagonizada por Michael, Franklin y Trevor, tres criminales con diferentes habilidades, pudiendo cambiar de personaje en todo momento y vivir cada una de sus vidas, así como aprovechar sus habilidades en las misiones.",
+    "description": " The story is centred on the heist sequences, and many missions involve shooting and driving gameplay. A wanted system governs the aggression of law enforcement response to players who commit crimes. Grand Theft Auto Online, the game's online multiplayer mode, lets up to 30 players engage in a variety of different cooperative and competitive game modes.",
     "cover": "https://m.media-amazon.com/images/I/81X9aPJMidL._AC_SL1500_.jpg", 
     "genre": ["MMO","Action","Adventure"],
     "rating": 97,
     "video": "https://www.youtube.com/embed/QkkoHAzjnUs",
-    "platform": ["Sony","Xbox","Steam"],
+    "platform": ["Sony","Xbox","PC"],
     "launchDate": "September 17, 2013",
     "isCompetitive": false
   },
   {
     "title": "Red Dead Redemption 2",
-    "description": "RDR 2 es una epopeya de vaqueros o western sólo en su envoltorio, pues como en todo juego de Rockstar, en su interior nos cuenta una hermosa y triste historia sobre gente que intenta cambiar y no siempre puede. En esta ocasión el videojuego Red Dead Redemption 2 está protagonizado por un bandolero, el mencionado Morgan, que es la mano derecha de Dutch Van der Linde, el líder de la banda de atracadores del mismo nombre, quienes se abren camino por un vasto y abrupto territorio norteamericano robando y luchando para sobrevivir.",
+    "description": "The story is set in a fictionalized representation of the United States in 1899 and follows the exploits of Arthur Morgan, an outlaw and member of the Van der Linde gang, who must deal with the decline of the Wild West whilst attempting to survive against government forces, rival gangs, and other adversaries. A bounty system governs the response of law enforcement and bounty hunters to crimes committed by the player. ",
     "cover": "https://assets.vg247.com/current//2018/05/red_dead_redemption_2_cover_art_1.jpg", 
     "genre": ["MMO","Action","Adventure","Western"],
     "rating": 97,
     "video": "https://www.youtube.com/embed/gmA6MrX81z4",
-    "platform": ["Sony","Xbox","Steam"],
+    "platform": ["Sony","Xbox","PC"],
     "launchDate": "October 26, 2018",
     "isCompetitive": false
   },
   {
     "title": "Tony Hawk's Pro Skater 2",
-    "description": "El jugador, jugando como skater profesional (ya sea en la vida real o creado) completa una serie de tareas que resultan en recompensas en efectivo. Con el dinero ganado, el jugador puede comprar mejoras de habilidad, mejores trucos y skates. ",
+    "description": "Tony Hawk's Pro Skater 2 puts the player in control of a professional or fictional skater and takes place in a third-person view with a fixed camera. The player must perform tricks and complete level objectives in return for cash rewards, which can be used to unlock other levels, improve the player character's statistics and obtain better equipment. ",
     "cover": "https://mediamaster.vandal.net/m/430/tony-hawks-pro-skater-2-20196171749128_1.jpg", 
     "genre": ["Sports"],
     "rating": 97,
@@ -89,24 +89,101 @@
   },
   {
     "title": "Call of Duty: Modern Warfare 2",
-    "description": " En esta entrega el jugador asume los roles de los personajes Joseph Allen, un soldado de los Rangers en las primeras misiones, para luego dar lugar al soldado James Ramírez por el bando estadounidense; y el sargento Gary Roach Sanderson de la Task Force 141 por el bando británico (aunque en esta fuerza de tareas especiales hay miembros de otros países también, como Australia y Canadá). En Modern Warfare 2 el antagonista principal es Vladimir Makarov, un antiguo discípulo de Zakhaev quien luego de perpetrar un ataque terrorista en el aeropuerto internacional moscovita, logra que Estados Unidos, el país que más odia, sea invadido por Rusia.",
+    "description": " The game's campaign follows Task Force 141, a multi-national special forces unit commanded by Captain Soap MacTavish as they hunt Vladimir Makarov, leader of the Russian Ultranationalist party, and United States Army Rangers from the 1st Ranger Battalion who are defending the Washington, D.C. area from a Russian invasion. ",
     "cover": "https://cdn.mobygames.com/covers/5840507-call-of-duty-modern-warfare-2-xbox-360-front-cover.jpg", 
     "genre": ["Action","Shooter"],
     "rating": 94,
     "video": "https://www.youtube.com/embed/blshENwbHgs",
-    "platform": ["Sony","Xbox","Steam"],
+    "platform": ["Sony","Xbox","PC"],
     "launchDate": "November 10, 2009",
     "isCompetitive": true
   },
   {
     "title": "Counter Strike: Source",
-    "description": " En esta entrega el jugador asume los roles de los personajes Joseph Allen, un soldado de los Rangers en las primeras misiones, para luego dar lugar al soldado James Ramírez por el bando estadounidense; y el sargento Gary Roach Sanderson de la Task Force 141 por el bando británico (aunque en esta fuerza de tareas especiales hay miembros de otros países también, como Australia y Canadá). En Modern Warfare 2 el antagonista principal es Vladimir Makarov, un antiguo discípulo de Zakhaev quien luego de perpetrar un ataque terrorista en el aeropuerto internacional moscovita, logra que Estados Unidos, el país que más odia, sea invadido por Rusia.",
+    "description": " Counter-Strike: Source retains its team-based objective-orientated first-person shooter style gameplay. The aim of playing a map is to accomplish a map's objective: defusing the bomb, rescuing all hostages, or killing the entire opposing team. The ultimate goal of the game is to win more rounds than the opposing team. Once players are killed, they do not respawn until the next round, though this depends on which server people play on. ",
     "cover": "https://m.media-amazon.com/images/M/MV5BMmQ1OWY2NTctMWZlYi00OWViLTg3NWUtMDMwMTI1ZDQwZmVlXkEyXkFqcGdeQXVyODMyNjkzNTg@._V1_.jpg", 
     "genre": ["Action","Shooter"],
     "rating": 88,
     "video": "https://www.youtube.com/embed/bvI62FUDpKA",
-    "platform": ["Steam"],
+    "platform": ["PC"],
     "launchDate": "October 07, 2004",
     "isCompetitive": true
+  },
+  {
+    "title": "Fornite",
+    "description": " Fortnite Battle Royale is a player-versus-player game for up to 100 players, allowing one to play alone, in a duo, or in a squad (usually consisting of three or four players). Weaponless players airdrop from a Battle Bus that crosses the game's map. When they land, they must scavenge for weapons, items, resources, and even vehicles while trying to stay alive and to attack and eliminate other players. Over the course of a round, the safe area of the map shrinks down in size due to an incoming toxic storm; players outside that threshold take damage and can be eliminated if they fail to quickly evacuate. This forces remaining players into tighter spaces and encourages player encounters. The last player, duo, or squad remaining is the winner. ",
+    "cover": "https://videoguejos.com/wp-content/uploads/2018/05/fortnite-cover.jpg", 
+    "genre": ["Action","Shooter","Strategy"],
+    "rating": 81,
+    "video": "https://www.youtube.com/embed/WJW-bzXZM8M",
+    "platform": ["PC","Nintendo","Sony","Xbox"],
+    "launchDate": "July 25, 2017",
+    "isCompetitive": true
+  },
+  {
+    "title": "Counter-Strike: Global Offensive",
+    "description": "The game pits two teams, Terrorists and Counter-Terrorists, against each other in different objective-based game modes. The most common game modes involve the Terrorists planting a bomb while Counter-Terrorists attempt to stop them, or Counter-Terrorists attempting to rescue hostages that the Terrorists have captured. There are nine official game modes, all of which have distinct characteristics specific to that mode.",
+    "cover": "https://i.3djuegos.com/juegos/7909/counterstrike_global_offensive/fotos/ficha/counterstrike_global_offensive-1942556.webp", 
+    "genre": ["Action","Shooter"],
+    "rating": 83,
+    "video": "https://www.youtube.com/embed/edYCtaNueQY",
+    "platform": ["PC"],
+    "launchDate": "August 21, 2012",
+    "isCompetitive": true
+  },
+  {
+    "title": "League of Legends",
+    "description": "Join forces with your closest allies as you unite to defeat your foes in deadly multiplayer battle arenas. League of Legends combines elements from both strategy and role playing games to bring you a unique and dynamic player experience. As a Summoner, you will have your own distinct, customizable avatar that grows in power as you move through the game. In each battle you will select and call forth one of dozens of Champions to control and engage in head-to-head combat against teams of highly trained warriors.",
+    "cover": "https://i.pinimg.com/564x/c5/6c/77/c56c774ee09e3e16bf12460dea765109.jpg", 
+    "genre": ["Strategy","MOBA"],
+    "rating": 78,
+    "video": "https://www.youtube.com/embed/8Dyx-bFeK2U",
+    "platform": ["PC"],
+    "launchDate": "March 1, 2013",
+    "isCompetitive": true
+  },
+  {
+    "title": "Fifa 23",
+    "description": "In FIFA 23, cross-play will be available at launch in FUT Division Rivals (except Co-Op), FUT Champions, FUT Ultimate Online Draft, FUT Online Friendlies (except Co-Op), FUT Play a Friend, Online Friendlies, Online Seasons (except Co-Op Seasons) and the Virtual Bundesliga competitive game mode that is available to players based in Germany. Cross-play is initially enabled for all players when launching FIFA 23 for the first time, provided the platform level settings allow for it, and it can be opted out of at any time.",
+    "cover": "https://assetsio.reedpopcdn.com/fifa-main.jpg?width=690&quality=75&format=jpg&auto=webp", 
+    "genre": ["Simulation","Sports"],
+    "rating": 76,
+    "video": "https://www.youtube.com/embed/o3V-GvvzjE4",
+    "platform": ["PC","Sony","Nintendo","Xbox"],
+    "launchDate": "September 27, 2022",
+    "isCompetitive": true
+  },
+  {
+    "title": "Dota 2",
+    "description": "Dota 2 is played in matches between two teams of five players, with each team occupying and defending their own separate base on the map. Each of the ten players independently controls a powerful character known as a hero that all have unique abilities and differing styles of play. During a match players collect experience points and items for their heroes to defeat the opposing team's heroes in player versus player combat. A team wins by being the first to destroy the other team's Ancient, a large structure located within their base.",
+    "cover": "https://www.fullesports.com/wp-content/uploads/2018/04/dota_2-3816694.jpg", 
+    "genre": ["Strategy","MOBA"],
+    "rating": 90,
+    "video": "https://www.youtube.com/embed/-cSFPIwMEq4",
+    "platform": ["PC"],
+    "launchDate": "March 24, 2013",
+    "isCompetitive": true
+  },
+  {
+    "title": "Overwatch 2",
+    "description": "Overwatch 2 is a hero shooter, where players are split into two teams and select a hero from a roster of 35 characters. Characters are organized into a damage class, responsible for offensive efforts; a support class, responsible for healing and buffing; and a tank class, responsible for creating space for their team. Each character has a unique set of skills, made up of active, passive, and ultimate abilities. Overwatch 2, like its predecessor, primarily centers on player versus player (PvP) combat across several different modes and maps, and includes both casual and ranked competitive matches.",
+    "cover": "https://cdn.mobygames.com/covers/11037272-overwatch-2-playstation-4-front-cover.jpg", 
+    "genre": ["Strategy","Shooter"],
+    "rating": 76,
+    "video": "https://www.youtube.com/embed/dZl1yGUetjI",
+    "platform": ["PC","Sony","Nintendo","Xbox"],
+    "launchDate": "October 04, 2022",
+    "isCompetitive": true
+  },
+  {
+    "title": "Fallout 4",
+    "description": "The main story takes place in the year 2287, ten years after the events of Fallout 3 and 210 years after The Great War, which caused catastrophic nuclear devastation across the United States. The player assumes control of a character referred to as the Sole Survivor, who emerges from a long-term cryogenic stasis in Vault 111, an underground nuclear fallout shelter. After witnessing the murder of their spouse and kidnapping of their son, the Sole Survivor ventures out into the Commonwealth to search for their missing child.",
+    "cover": "https://image.api.playstation.com/vulcan/ap/rnd/202009/2500/D59jxQR99Jg545NKa4Nu1FmP.png", 
+    "genre": ["MMO","Shooter","Terror"],
+    "rating": 84,
+    "video": "https://www.youtube.com/embed/XW7Of3g2JME",
+    "platform": ["PC","Sony","Xbox"],
+    "launchDate": "November 15, 2015",
+    "isCompetitive": false
   }
-]
+ ]

@@ -27,12 +27,13 @@ const gameSchema = new Schema({
         "MMO",
         "Puzzle",
         "Other",
-        "Terror",
+        "MMO",
         "Shooter",
         "Casual",
         "Fantasy",
         "Platform",
         "Western",
+        "MOBA",
       ],
     },
   ],
@@ -45,7 +46,7 @@ const gameSchema = new Schema({
   platform: [
     {
       type: String,
-      enum: ["Steam", "Sony", "Xbox", "Nintendo"],
+      enum: ["PC", "Sony", "Xbox", "Nintendo"],
     },
   ],
   launchDate: {
