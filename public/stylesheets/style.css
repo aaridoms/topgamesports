@@ -22,9 +22,9 @@ nav {
   color: #a0a5c3;
 }
 
-/* li {
-  font-weight: bold;
-} */
+.navPad {
+  padding: 0px 40px;
+}
 
 footer {
   display: flex;
@@ -166,14 +166,7 @@ tbody {
 }
 
 #eventHOne {
-  color: black;
-  font-family: "Raleway", sans-serif;
-  font-size: 40px;
-  font-weight: 800;
-  line-height: 72px;
-  margin: 0 0 24px;
-  text-transform: uppercase;
-  text-decoration: none;
+  margin-bottom: 40px;
 }
 
 #aHoverEvent {
