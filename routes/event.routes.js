@@ -179,7 +179,6 @@ router.post("/:eventId/join", isLoggedIn, async (req, res, next) => {
         { new: true }
       ).populate("game");
       numberOfParticipants = oneEvent.participants.length;
-      console.log(oneEvent);
 
       res.render("event/event-details", {
         oneEvent,
@@ -220,7 +219,7 @@ router.post("/:eventId/leave", isLoggedIn, async (req, res, next) => {
   }
 });
 
-// GET /event/esports => renderiza la vista de eventos de esports
+// GET /event/esports => renderiza la vista de eventos de esports mediante 3 llamadas a la API
 router.get("/esports", isLoggedIn, async (req, res, next) => {
   let fechaActual = new Date();
 
@@ -304,7 +303,6 @@ router.get("/esports", isLoggedIn, async (req, res, next) => {
     });
   } catch (error) {
     if (error.response && error.response.status === 429) {
-      // Demasiadas solicitudes, maneja el error según tus necesidades
       const errorMessage = error.response.data.message;
       return res.redirect("/event");
     }

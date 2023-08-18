@@ -22,9 +22,9 @@
       <div class="text-success">
         <hr class="border border-danger border-2 opacity-50" />
       </div>
-      <h5>START DATE:{{oneEvent.startDate}}</h5>
+      <h5>START DATE: {{oneEvent.startDate}}</h5>
 
-      <p>Current Users who joined the event:{{numberOfParticipants}}</p>
+      <h5>Current Users who joined the event: {{numberOfParticipants}}</h5>
 
       <div class="d-flex">
         <form action="/event/{{oneEvent._id}}/join" method="post">
