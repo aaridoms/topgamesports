@@ -1,33 +1,139 @@
-
 <div class="centerb">
-<div>
-  <h1>TOP 25 GAMES</h1>
-
-</div>
-
-<div id="card-games">
-  {{#each allGames}}
-    <div>
-      <div class="card" style="width: 23rem;">
-        <a href="/game/{{this._id}}/details">
-          <img
-            src="{{this.cover}}"
-            class="card-img-top"
-            alt="{{this.title}}"
-            style="width: 366px; height: 320px; object-fit: cover; object-position: center top;"
+  
+  <div class="d-flex justify-content-end filter">
+    <div class="dropdown">
+      <li
+        class="dropdown-toggle"
+        type="button"
+        id="dropdownMenuButton1"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill="#000000"
+            d="M472 168H40a24 24 0 0 1 0-48h432a24 24 0 0 1 0 48Zm-80 112H120a24 24 0 0 1 0-48h272a24 24 0 0 1 0 48Zm-96 112h-80a24 24 0 0 1 0-48h80a24 24 0 0 1 0 48Z"
           />
-        </a>
+        </svg>
+      </li>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li>
+          <form action="/game/filter/rating-up" method="post">
+            <button class="formBtn">Rating
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill="#000000"
+                  d="M21.886 5.536A1.002 1.002 0 0 0 21 5H3a1.002 1.002 0 0 0-.822 1.569l9 13a.998.998 0 0 0 1.644 0l9-13a.998.998 0 0 0 .064-1.033zM12 17.243L4.908 7h14.184L12 17.243z"
+                />
+              </svg></button>
+          </form>
+        </li>
+        <li>
+          <form action="/game/filter/rating-down" method="post">
+            <button class="formBtn">Rating
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill="#000000"
+                  d="M3 19h18a1.002 1.002 0 0 0 .823-1.569l-9-13c-.373-.539-1.271-.539-1.645 0l-9 13A.999.999 0 0 0 3 19zm9-12.243L19.092 17H4.908L12 6.757z"
+                />
+              </svg></button>
+          </form>
+        </li>
+        <li>
+          <form action="/game/filter/launch-date-up" method="post">
+            <button class="formBtn">launch Date
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill="#000000"
+                  d="M21.886 5.536A1.002 1.002 0 0 0 21 5H3a1.002 1.002 0 0 0-.822 1.569l9 13a.998.998 0 0 0 1.644 0l9-13a.998.998 0 0 0 .064-1.033zM12 17.243L4.908 7h14.184L12 17.243z"
+                />
+              </svg></button>
+          </form>
+        </li>
+        <li>
+          <form action="/game/filter/launch-date-down" method="post">
+            <button class="formBtn">launch Date
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill="#000000"
+                  d="M3 19h18a1.002 1.002 0 0 0 .823-1.569l-9-13c-.373-.539-1.271-.539-1.645 0l-9 13A.999.999 0 0 0 3 19zm9-12.243L19.092 17H4.908L12 6.757z"
+                />
+              </svg></button>
+          </form>
+        </li>
+        <li>
+          <form action="/game/filter/competitive" method="post">
+            <button class="formBtn">Competitive
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill="#000000"
+                  d="m12.534 21.77l-1.09-2.81l10.52.54l-.451 4.5zM15.06 0L.307 6.969L2.59 17.471H5.6l-.52-7.512l.461-.144l1.81 7.656h3.126l-.116-9.15l.462-.144l1.582 9.294h3.31l.78-11.053l.462-.144l.82 11.197h4.376l1.54-15.37Z"
+                />
+              </svg></button>
+          </form>
+        </li>
+      </ul>
+    </div>
+  </div>
 
-        <div class="card-body">
-          <h5 class="card-title">{{this.title}}</h5>
-          <p class="card-text">RATING: {{this.rating}} </p>
-          <a
-            href="/game/{{this._id}}/details"
-            class="btn btn-primary d-flex justify-content-center"
-          >CHECK GAME</a>
+  <div id="card-games">
+    {{#each allGames}}
+      <div>
+        <div class="card" style="width: 23rem;">
+          <a href="/game/{{this._id}}/details">
+            <img
+              src="{{this.cover}}"
+              class="card-img-top"
+              alt="{{this.title}}"
+              style="width: 366px; height: 320px; object-fit: cover; object-position: center top;"
+            />
+          </a>
+
+          <div class="card-body">
+            <h5
+              class="card-title d-flex justify-content-center"
+            >{{this.title}}</h5>
+            <div class="d-flex justify-content-between">
+              <p class="card-text">RATING: {{this.rating}}</p>
+              <small>{{this.launchDate}}</small>
+            </div>
+            <a
+              href="/game/{{this._id}}/details"
+              class="btn btn-primary d-flex justify-content-center"
+            >CHECK GAME</a>
+          </div>
         </div>
       </div>
-    </div>
-  {{/each}}
+    {{/each}}
+  </div>
 </div>
-    </div>

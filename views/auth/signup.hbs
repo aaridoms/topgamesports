@@ -1,23 +1,32 @@
-<div>
-  <h3>Formulario de registro</h3>
-
+<div class="formsStyles">
+  <img src="https://res.cloudinary.com/ddaezutq8/image/upload/v1692089155/TOPGAMESPORTS_sin_fondo_sfsawl.png" alt="topgamesports" width="400px">
   <form action="/auth/signup" method="post">
-    <label for="username">Username</label>
-    <input type="text" name="username">
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <input type="text" name="username" class="form-control">
+    </div>
 
-    <label for="email">Email</label>
-    <input type="email" name="email">
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" name="email" class="form-control">
+    </div>
 
-    <label for="password">Password</label>
-    <input type="password" name="password">
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" name="password" class="form-control">
+    </div>
 
-    <label for="repitPassword">Repit Password</label>
-    <input type="password" name="repitPassword">
+    <div class="mb-3">
+      <label for="repitPassword" class="form-label">Repit Password</labe>
+      <input type="password" name="repitPassword" class="form-control">
+    </div>
 
+    <button class="btn btn-success">Signup</button>
+    <p>If you already have an account <a href="/auth/login" class="link-success link-offset-3 link-underline-opacity-100">Login</a></p>
     {{#if errorMessage}}
-      <p>{{errorMessage}}</p>
+      <div class="alert alert-warning" role="alert">
+        {{errorMessage}}
+      </div>
     {{/if}}
-
-    <button>Signup</button>
   </form>
 </div>

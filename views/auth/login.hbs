@@ -1,22 +1,24 @@
-<div>
-
-  <h3>Log In</h3>
-
+<div class="formsStyles">
+  <img src="https://res.cloudinary.com/ddaezutq8/image/upload/v1692089155/TOPGAMESPORTS_sin_fondo_sfsawl.png" alt="topgamesports" width="400px">
   <form action="/auth/login" method="post">
-    <label for="username">Username</label>
-    <input type="text" name="username">
+    <div class="mb-3">
+      <label for="username" class="form-label">Username</label>
+      <input type="text" name="username" class="form-control">
+    </div>
 
-    <label for="password">Password</label>
-    <input type="password" name="password">
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input type="password" name="password" class="form-control">
+    </div>
 
+    <button class="btn btn-success">Log In</button>
 
-    <button>Log In</button>
-    <p>Si no tienes cuenta aún <a href="/auth/signup">Signup</a></p>
+    <p>If you don't have an account yet <a href="/auth/signup" class="link-success link-offset-3 link-underline-opacity-100">Signup</a></p>
+
     {{#if errorMessage}}
-      <p>{{errorMessage}}</p>
+      <div class="alert alert-warning" role="alert">
+        {{errorMessage}}
+      </div>
     {{/if}}
-
   </form>
-
-
 </div>

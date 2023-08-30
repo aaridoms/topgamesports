@@ -4,34 +4,55 @@ const gameSchema = new Schema({
   title: {
     type: String,
     require: true,
-    unique: true
+    unique: true,
   },
   description: {
     type: String,
     require: true,
   },
   cover: {
-    type: String, // Imagen guardada online
-    default: ""
+    type: String,
+    default: "https://res.cloudinary.com/ddaezutq8/image/upload/v1692181846/Captura_de_pantalla_2023-08-16_122851_mfrlvr.png",
   },
-  genre: {
-    type: [String]
-  },
+  genre: [
+    {
+      type: String,
+      enum: [
+        "Action",
+        "Adventure",
+        "RPG",
+        "Strategy",
+        "Sports",
+        "Simulation",
+        "MMO",
+        "Puzzle",
+        "Other",
+        "MMO",
+        "Shooter",
+        "Casual",
+        "Fantasy",
+        "Platform",
+        "Western",
+        "MOBA",
+        "Terror"
+      ],
+    },
+  ],
   rating: {
-    type: Number
+    type: Number,
   },
   video: {
-    type: String
+    type: String,
   },
   platform: [
     {
       type: String,
-      enum: ["Steam", "Sony", "Xbox", "Nintendo"]
-    }
+      enum: ["PC", "Sony", "Xbox", "Nintendo"],
+    },
   ],
   launchDate: {
     type: Date,
-    get: function(date) {
+    get: function (date) {
       if (!date) {
         return null;
       }
@@ -41,12 +62,12 @@ const gameSchema = new Schema({
       const year = date.getFullYear();
 
       return `${day}/${month}/${year}`;
-    }
+    },
   },
   isCompetitive: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
 });
 
 const Game = model("Game", gameSchema);

@@ -1,5 +1,5 @@
 <div class="centerb">
-  <div class="details d-flex ">
+  <div class="details d-flex">
     <div>
       <img
         src="{{oneEvent.imageUrl}}"
@@ -8,46 +8,44 @@
       />
     </div>
     <div>
-      <h5>Detalles del evento</h5>
+      <h5>Event Details</h5>
       <h2>{{oneEvent.name}}</h2>
       <h4>GAME:
-        <a
+        <a id="aHoverEvent"
           href="/game/{{oneEvent.game._id}}/details"
         >{{oneEvent.game.title}}</a>
       </h4>
       <div class="text-success">
-        <hr class="border border-primary border-3 opacity-75">
+        <hr class="border border-primary border-3 opacity-75" />
       </div>
       <p>{{oneEvent.description}}</p>
-<div class="text-success">
-        <hr class="border border-danger border-2 opacity-50">
+      <div class="text-success">
+        <hr class="border border-danger border-2 opacity-50" />
       </div>
-      <h5>START DATE:{{oneEvent.startDate}}</h5>
+      <h5>START DATE: {{oneEvent.startDate}}</h5>
 
-
-      <p>Usuarios apuntados:{{numberOfParticipants}}</p>
-
-
+      <h5>Current Users who joined the event: {{numberOfParticipants}}</h5>
 
       <div class="d-flex">
         <form action="/event/{{oneEvent._id}}/join" method="post">
-        <button class="btn btn-outline-success" >Join</button>
-      </form>
+          <button class="btn btn-outline-success">Join</button>
+        </form>
 
         <form action="/event/{{oneEvent._id}}/leave" method="post">
-        <button class="btn btn-outline-danger">Leave</button>
-      </form>
+          <button class="btn btn-outline-danger">Leave</button>
+        </form>
       </div>
       <div class="d-flex justify-content-center">
         {{#if messageError}}
+         <div class="alert alert-primary" role="alert" style="height: 10px; color:green">
           <p>{{messageError}}</p>
+                  </div>
         {{/if}}
 
       </div>
-      
+
+    </div>
 
   </div>
 
 </div>
-
-<hr class="border border-danger border-2 opacity-50">

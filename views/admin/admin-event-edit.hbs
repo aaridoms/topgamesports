@@ -1,37 +1,46 @@
+<div class="formsStyles">
+  <H1>Editar {{oneEvent.name}}</H1>
 
-<div>
+  <form action="/event/{{oneEvent._id}}/edit" method="post">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input type="text" name="name" value="{{oneEvent.name}}" class="form-control">
+    </div>
 
-<H1>Editar {{oneEvent.name}}</H1>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <input type="text" name="description" value="{{oneEvent.description}}" class="form-control">
+    </div>
 
-<form action="/event/{{oneEvent._id}}/edit" method="post">
-    <label for="name">name</label>
-    <input type="text" name="name" value="{{oneEvent.name}}">
+    <div class="mb-3">
+      <label for="startDate" class="form-label">Date: <small>Actual Date:{{oneEvent.startDate}}</small></label>
+      <input type="date" name="startDate" value="{{oneEvent.startDate}}" class="form-control">
+    </div>
 
-    <label for="description">Description</label>
-    <input type="text" name="description" value="{{oneEvent.description}}">
+    <div class="mb3">
+      <label for="imageUrl" class="form-label">Imagen</label>
+      <input type="text" name="imageUrl" value="{{oneEvent.imageUrl}}" class="form-control">
+    </div>
 
-    <label for="startDate">Fecha</label>
-    <input type="text" name="startDate" value="{{oneEvent.startDate}}">
+    <div class="mb-3">
+      <label for="game" class="form-label">Game</label>
+      <select name="game" class="form-control">
+        {{#each cloneAllGames}}
+        {{#if this.isSelected}}
+          <option value="{{this._id}}" selected>{{this.title}}</option>
+        {{else}}
+          <option value="{{this._id}}">{{this.title}}</option>
+        {{/if}}
+        {{/each}}
+      </select>
+    </div>
 
-    <label for="imageUrl">Imagen</label>
-    <input type="text" name="imageUrl" value="{{oneEvent.imageUrl}}">
-
-
-    <label for="game">Juego</label>
-     <select name="game">
-      {{#each cloneAllGames}}
-      {{#if this.isSelected}}
-        <option value="{{this._id}}" selected>{{this.title}}</option>
-      {{else}}
-        <option value="{{this._id}}">{{this.title}}</option>
-      {{/if}}
-      {{/each}}
-     </select>
+    <button class="btn btn-warning">Edit</button>
 
     {{#if errorMessage}}
-      <p>{{errorMessage}}</p>
+      <div class="alert alert-danger" role="alert">
+        <p>{{errorMessage}}</p>
+      </div>
     {{/if}}
-
-    <button>Editar</button>
   </form>
 </div>

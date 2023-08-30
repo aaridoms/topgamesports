@@ -1,39 +1,55 @@
-{{!-- <h1>Los mejores juegos</h1> --}}
+{{! <h1>Los mejores juegos</h1> }}
 <div class="centerb">
-  <div class="row row-cols-1 row-cols-md-3 g-4" style="margin-bottom: 50px; margin-top: 35px;">
-  {{#each allGames}}
-  <div class="col" style="width: 550px;">
-    <div class="card h-100">
-      <a href="/game/{{this._id}}/details"><img src="{{this.cover}}" class="card-img-top" alt="..." style="width: 525px; height: 600px; object-fit: cover; object-position: center top;"></a>
-      <div class="card-body d-flex flex-column align-items-center">
-        <h5 class="card-title">{{this.title}}</h5>
-        <p class="card-text" style="color: red; font-size: 20px; ">{{this.rating}}</p>
+  <div
+    class="row row-cols-1 row-cols-md-3 g-4"
+    style="margin-bottom: 50px; margin-top: 35px;"
+  >
+    {{#each allGames}}
+      <div class="col" style="width: 550px;">
+        <div class="card h-100">
+          <a href="/game/{{this._id}}/details"><img
+              src="{{this.cover}}"
+              class="card-img-top"
+              alt="..."
+              style="width: 525px; height: 600px; object-fit: cover; object-position: center top;"
+            /></a>
+          <div class="card-body d-flex flex-column align-items-center">
+            <h5 class="card-title">{{this.title}}</h5>
+            <p
+              class="card-text"
+              style="color: red; font-size: 20px; "
+            >{{this.rating}}</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">Launch Date: {{this.launchDate}}</small>
+          </div>
+        </div>
       </div>
-      <div class="card-footer">
-        <small class="text-muted">Launch Date: {{this.launchDate}}</small>
-      </div>
-    </div>
+    {{/each}}
   </div>
-  {{/each}}
-</div>
 
-{{!-- <h1>Eventos recientes</h1> --}}
+  {{! <h1>Eventos recientes</h1> }}
 
-<div class="row row-cols-1 row-cols-md-3 g-4">
-  {{#each allEvents}}
-  <div class="col" style="width: 300px;">
-    <div class="card h-100">
-      <a href="/event/{{this._id}}/details"><img src="{{this.imageUrl}}" class="card-img-top" alt="..." style="width: 275px; height: 275px;"></a>
-      <div class="card-body d-flex flex-column align-items-center">
-        <h5 class="card-title">{{this.name}}</h5>
-        <p class="card-text">{{this.startDate}}</p>
-        <p class="card-text">{{this.game.title}}</p>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {{#each allEvents}}
+      <div class="col" style="width: 400px;">
+        <div class="card h-100">
+          <a href="/event/{{this._id}}/details"><img
+              src="{{this.imageUrl}}"
+              class="card-img-top"
+              alt="..."
+              style="width: 375px; height: 275px; object-fit: cover;"
+            /></a>
+          <div class="card-body d-flex flex-column align-items-center">
+            <h5 class="card-title">{{this.name}}</h5>
+            <p class="card-text">{{this.startDate}}</p>
+            <p class="card-text">{{this.game.title}}</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted">{{this.date}}</small>
+          </div>
+        </div>
       </div>
-      <div class="card-footer">
-        <small class="text-muted">{{this.date}}</small>
-      </div>
-    </div>
+    {{/each}}
   </div>
-  {{/each}}
-</div>
 </div>

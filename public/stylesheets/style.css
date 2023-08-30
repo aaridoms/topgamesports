@@ -1,10 +1,15 @@
 body {
   padding: 0px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  /* font-family: 'Roboto Mono', monospace; */
 }
 
 a {
   color: #00b7ff;
+}
+
+h1, h2, h3, h4, h6, p, small{
+  font-family: 'Roboto Mono', monospace;
 }
 
 h1 {
@@ -14,24 +19,29 @@ h1 {
 nav {
   height: 100px;
   font-size: 25px;
+  color: #a0a5c3;
 }
 
-/* .bcolor {
-  background-color: #353945;
-  color: #A0A5C3;
+.navPad {
+  padding: 0px 40px;
 }
-
-.bcolor a {
-  color: #A0A5C3;
-} */
 
 footer {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100px;
   background-color: #f8f9fa;
   margin-top: 20px;
+  gap: 10px;
+}
+footer p {
+  margin: 0 5px;
+  color: #a0a5c3;
+}
+footer small {
+  color: darkblue;
 }
 
 .centerb {
@@ -57,13 +67,13 @@ form {
   width: 500px;
 }
 
-#card-games{
-display: flex;
-flex-direction: row;
-flex-wrap: wrap;
-gap:20px;
-align-items: center;
-justify-content: center;
+#card-games {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
 }
 
 thead {
@@ -76,19 +86,93 @@ tbody {
   font-size: 25px;
 }
 
-.details{
-  display:flex;
+.details {
+  display: flex;
   flex-direction: row;
-margin: 100px 300px;
-gap: 80px;
-justify-content: space-between;
+  margin: 100px 300px;
+  gap: 80px;
+  justify-content: space-between;
 }
 
-.event-list{
-display: flex;
-flex-direction: column;
-padding: 0px 20px;
-width: 500px;
-justify-content: center;
+.event-list {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 20px;
+  width: 500px;
+  justify-content: center;
+}
 
+.editCover {
+  display: flex;
+  gap: 20px;
+}
+
+.editCover img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  object-position: center top;
+  border: 1px solid lightgrey;
+}
+
+.profilePic {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+}
+
+.filter {
+  width: 1500px;
+  margin-bottom: 10px;
+}
+
+.filter li {
+  list-style: none;
+}
+
+.filter button {
+  width: 150px;
+}
+
+.filter ul {
+  width: 20px;
+}
+
+.formBtn {
+  background-color: transparent;
+  border: none;
+}
+
+.formBtn:hover {
+  color: #0d6efd;
+}
+
+.launchDate {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.tournamentsList {
+  padding-top: 50px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+#eventHOne {
+  margin-bottom: 40px;
+}
+
+#aHoverEvent {
+  text-transform: uppercase;
+  text-decoration: none;
+}
+#aHoverEvent:hover{
+  color: #0d6efd;
 }

@@ -23,7 +23,7 @@
     </div>
     
     <div class="form-group">
-      <label for="game">Platform</label>
+      <label for="game">Game</label>
       <select class="form-control" name="game">
         {{#each allGames}}
           <option value="{{this._id}}">{{this.title}}</option>
@@ -31,42 +31,12 @@
       </select>
     </div>
 
+    <button class="btn btn-success">Submit</button>
+
     {{#if errorMessage}}
       <div class="alert alert-danger" role="alert">
         <p>{{errorMessage}}</p>
       </div>
     {{/if}}
-
-    
-    <button class="btn btn-success">Submit</button>
   </form>
-
-{{!-- <form action="/event/new-event" method="post">
-    <label for="name">name</label>
-    <input type="text" name="name">
-
-    <label for="description">Description</label>
-    <input type="text" name="description">
-
-    <label for="startDate">Fecha</label>
-    <input type="date" name="startDate">
-
-    <label for="imageUrl">Imagen</label>
-    <input type="text" name="imageUrl">
-
-
-    <label for="game">Juego</label>
-     <select name="game">
-      {{#each allGames}}
-        <option value="{{this._id}}">{{this.title}}</option>
-      {{/each}}
-     </select>
-
-    {{#if errorMessage}}
-      <p>{{errorMessage}}</p>
-    {{/if}}
-
-    <button>Añadir</button>
-  </form> --}}
-
 </div>
