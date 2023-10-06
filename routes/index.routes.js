@@ -12,7 +12,8 @@ router.use(updateLocals);
 router.get("/", async (req, res, next) => {
   
   try {
-    const allGames = await Game.find().limit(3).skip(4);
+    const randomNumber = Math.floor(Math.random()*10)
+    const allGames = await Game.find().limit(3).skip(randomNumber);
     const allEvents = await Event.find().limit(4).populate("game");
 
     res.render("index", {
